@@ -239,8 +239,11 @@
       width: 100%;
       display: block;
       opacity: 0.95;
-      transition: opacity 1.2s ease;
+      cursor: pointer;
+      transition: opacity 1.2s ease, transform 0.3s;
     }
+
+    .vision-img:hover { transform: scale(1.01); }
 
     .vision-slideshow .vision-img:not(.slide-active) {
       display: none;
@@ -414,6 +417,13 @@
       border-radius: 1rem;
       border: 1px solid var(--border);
       display: block;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .mandala-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
 
     .mandala-items {
@@ -1891,16 +1901,16 @@
   <p class="section-desc">正解を言える子どもではなく、「科学的に考えられる人」を育てる。</p>
   <div class="vision-card" style="margin-bottom:2.5rem;">
     <div class="vision-slideshow">
-      <img src="images/jissen_koso_1.png" alt="令和8年度 理科授業実践構想 1" class="vision-img slide-active">
-      <img src="images/jissen_koso_2.png" alt="令和8年度 理科授業実践構想 2" class="vision-img">
-      <img src="images/jissen_koso_3.png" alt="令和8年度 理科授業実践構想 3" class="vision-img">
-      <img src="images/jissen_koso_4.png" alt="令和8年度 理科授業実践構想 4" class="vision-img">
-      <img src="images/jissen_koso_5.png" alt="令和8年度 理科授業実践構想 5" class="vision-img">
-      <img src="images/jissen_koso_6.png" alt="令和8年度 理科授業実践構想 6" class="vision-img">
-      <img src="images/jissen_koso_7.png" alt="令和8年度 理科授業実践構想 7" class="vision-img">
-      <img src="images/jissen_koso_8.png" alt="令和8年度 理科授業実践構想 8" class="vision-img">
-      <img src="images/jissen_koso_9.png" alt="令和8年度 理科授業実践構想 9" class="vision-img">
-      <img src="images/jissen_koso_10.png" alt="令和8年度 理科授業実践構想 10" class="vision-img">
+      <img src="images/jissen_koso_1.png" alt="令和8年度 理科授業実践構想 1" class="vision-img slide-active" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_2.png" alt="令和8年度 理科授業実践構想 2" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_3.png" alt="令和8年度 理科授業実践構想 3" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_4.png" alt="令和8年度 理科授業実践構想 4" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_5.png" alt="令和8年度 理科授業実践構想 5" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_6.png" alt="令和8年度 理科授業実践構想 6" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_7.png" alt="令和8年度 理科授業実践構想 7" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_8.png" alt="令和8年度 理科授業実践構想 8" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_9.png" alt="令和8年度 理科授業実践構想 9" class="vision-img" onclick="openModal(this.src)">
+      <img src="images/jissen_koso_10.png" alt="令和8年度 理科授業実践構想 10" class="vision-img" onclick="openModal(this.src)">
     </div>
     <div class="vision-caption">
       <div class="vision-icon">🔭</div>
@@ -2066,7 +2076,7 @@
     <div>
       <p class="section-eyebrow" style="margin-bottom:1rem;">研究の構造（マンダラチャート）</p>
       <div class="mandala-wrap">
-        <img src="images/mandala.png" alt="研修マンダラチャート" class="mandala-img">
+        <img src="images/mandala.png" alt="研修マンダラチャート" class="mandala-img" onclick="openModal(this.src)">
         <div class="mandala-items">
           <div class="mandala-item">
             <div class="mandala-num">①</div>
