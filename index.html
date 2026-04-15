@@ -1096,6 +1096,185 @@
       padding: 0.75rem 2rem;
     }
 
+    /* ===== JISSEN (授業の実際) ===== */
+    .jissen-block { margin-bottom: 4rem; }
+
+    .dialogue-wrap {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    .dialogue-topic {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+    }
+
+    .dialogue-flow {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .dl {
+      display: flex;
+      flex-direction: column;
+      max-width: 72%;
+      gap: 0.2rem;
+    }
+
+    .dl.child { align-self: flex-start; }
+    .dl.teacher { align-self: flex-end; align-items: flex-end; }
+
+    .dl-name {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0.3rem;
+    }
+
+    .dl.child .dl-name { color: var(--muted); }
+    .dl.teacher .dl-name { color: var(--teal); }
+
+    .dl-bubble {
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .dl.child .dl-bubble {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 0.3rem 1rem 1rem 1rem;
+    }
+
+    .dl.teacher .dl-bubble {
+      background: rgba(45,212,191,0.09);
+      border: 1px solid rgba(45,212,191,0.22);
+      border-radius: 1rem 0.3rem 1rem 1rem;
+    }
+
+    .dialogue-insight {
+      padding: 1.25rem 1.5rem;
+      background: rgba(251,191,36,0.05);
+      border-top: 1px solid rgba(251,191,36,0.15);
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .dialogue-insight strong { color: var(--gold); }
+
+    /* Thinking map */
+    .thinking-map {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .tm-inputs {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .tm-node {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .tm-connector {
+      color: var(--teal);
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+
+    .tm-hub {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: rgba(45,212,191,0.1);
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      font-size: 1.05rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tm-output {
+      flex: 1;
+      background: rgba(45,212,191,0.04);
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .tm-output-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .tm-output-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Kansatsu cards */
+    .kansatsu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .kansatsu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .kansatsu-card h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .kansatsu-note {
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: 1.25rem;
+      font-style: italic;
+    }
+
     @media (max-width: 768px) {
       nav { display: none; }
       .ba-grid { grid-template-columns: 1fr !important; }
@@ -1110,6 +1289,9 @@
       .r7-card.full { grid-column: 1 !important; }
       .student-goals { grid-template-columns: 1fr !important; }
       .sf-four { gap: 0.4rem; }
+      .kansatsu-grid { grid-template-columns: 1fr !important; }
+      .thinking-map { flex-direction: column; }
+      .tm-connector { transform: rotate(90deg); }
     }
   </style>
 </head>
@@ -1123,6 +1305,7 @@
     <li><a href="#vision">目指す姿</a></li>
     <li><a href="#connection">学校の文脈</a></li>
     <li><a href="#approach">実践のアプローチ</a></li>
+    <li><a href="#jissen">授業の実際</a></li>
     <li><a href="#tools">ツール集</a></li>
     <li><a href="#schedule">年間計画</a></li>
   </ul>
@@ -1239,6 +1422,9 @@
       </ul>
     </div>
   </div>
+  <p class="kansatsu-note" style="margin-top:1.75rem; font-style:normal; font-size:0.88rem;">
+    「わかった」で終わるのではなく、「なぜそうなるのか」「他の場合でも言えるのか」まで考える授業を目指しています。
+  </p>
 </section>
 
 <hr class="divider">
@@ -1367,6 +1553,10 @@
       </ul>
     </div>
   </div>
+  <div class="quote-block" style="margin-top:2.5rem;">
+    個人の実践ではなく、学校全体の研究を具体的な授業として表現する。<br>
+    理科の授業で「問い・対話・つながり」を体現することが、この研究の立ち位置です。
+  </div>
 </section>
 
 <hr class="divider">
@@ -1459,6 +1649,116 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- JISSEN (授業の実際) -->
+<section id="jissen" class="fade-in">
+  <p class="section-eyebrow">Classroom Practice</p>
+  <h2 class="section-title">授業の実際</h2>
+  <p class="section-desc">「問い返し」と「対話」が実際の授業でどのように機能するか。</p>
+
+  <!-- 対話の流れ -->
+  <div class="jissen-block">
+    <p class="section-eyebrow" style="margin-bottom:1rem;">問いと対話の流れ</p>
+    <div class="dialogue-wrap">
+      <div class="dialogue-topic">場面：水をあたためたときの変化</div>
+      <div class="dialogue-flow">
+        <div class="dl child">
+          <span class="dl-name">子ども</span>
+          <div class="dl-bubble">水はあたためると上にいくと思う</div>
+        </div>
+        <div class="dl teacher">
+          <span class="dl-name">教師</span>
+          <div class="dl-bubble">なんでそう思ったの？</div>
+        </div>
+        <div class="dl child">
+          <span class="dl-name">子ども</span>
+          <div class="dl-bubble">軽くなるから</div>
+        </div>
+        <div class="dl teacher">
+          <span class="dl-name">教師</span>
+          <div class="dl-bubble">軽くなるってどういうこと？</div>
+        </div>
+        <div class="dl child">
+          <span class="dl-name">子ども</span>
+          <div class="dl-bubble">うーん…</div>
+        </div>
+        <div class="dl teacher">
+          <span class="dl-name">教師</span>
+          <div class="dl-bubble">じゃあ、空気と同じかな？</div>
+        </div>
+        <div class="dl child">
+          <span class="dl-name">子ども</span>
+          <div class="dl-bubble">あ、あたたかい空気は上にいくから…</div>
+        </div>
+        <div class="dl teacher">
+          <span class="dl-name">教師</span>
+          <div class="dl-bubble">じゃあ、水も同じって言えそう？</div>
+        </div>
+        <div class="dl child">
+          <span class="dl-name">子ども</span>
+          <div class="dl-bubble">うん、同じかもしれない</div>
+        </div>
+      </div>
+      <div class="dialogue-insight">
+        「なんで？」「つまり？」「他と比べると？」と問い返すことで、<br>
+        子どもの考えを<strong>言葉にさせ、つなげ、深める</strong>ことを大切にしています。
+      </div>
+    </div>
+  </div>
+
+  <!-- 思考のつながり -->
+  <div class="jissen-block">
+    <p class="section-eyebrow" style="margin-bottom:1.5rem;">思考のつながりのイメージ</p>
+    <div class="thinking-map">
+      <div class="tm-inputs">
+        <div class="tm-node">前の時間の学び（既習）</div>
+        <div class="tm-node">友達の考え</div>
+        <div class="tm-node">自分の生活経験</div>
+        <div class="tm-node">これからの学び</div>
+      </div>
+      <div class="tm-connector">→</div>
+      <div class="tm-hub">問い</div>
+      <div class="tm-connector">→</div>
+      <div class="tm-output">
+        <p class="tm-output-title">広がりのある理解</p>
+        <p class="tm-output-sub">単発の理解ではなく、<br>つながりの中で深まる</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 子どもの変容の見取り -->
+  <div class="jissen-block" style="margin-bottom:0;">
+    <p class="section-eyebrow" style="margin-bottom:1rem;">子どもの変容の見取り</p>
+    <div class="kansatsu-grid">
+      <div class="kansatsu-card">
+        <h4>ふり返り（わがとも）</h4>
+        <ul class="r7-list">
+          <li>わかったこと</li>
+          <li>がんばったこと</li>
+          <li>友達のよいところ</li>
+          <li>もっと知りたいこと</li>
+        </ul>
+      </div>
+      <div class="kansatsu-card">
+        <h4>発言内容の変化</h4>
+        <ul class="r7-list">
+          <li>理由を説明するようになったか</li>
+          <li>他の考えとつなげているか</li>
+        </ul>
+      </div>
+      <div class="kansatsu-card">
+        <h4>対話の広がり</h4>
+        <ul class="r7-list">
+          <li>自分から問い返す姿があるか</li>
+          <li>友達の考えをもとに考えを更新しているか</li>
+        </ul>
+      </div>
+    </div>
+    <p class="kansatsu-note">結果だけでなく、「思考の過程」や「変化」を大切にしています。</p>
   </div>
 </section>
 
