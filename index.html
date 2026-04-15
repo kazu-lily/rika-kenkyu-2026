@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>理科授業研究 2026 | 山田和博</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #0a1628;
+      --bg2:    #0f2044;
+      --card:   rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text:   #e2e8f0;
+      --muted:  #94a3b8;
+      --teal:   #2dd4bf;
+      --blue:   #60a5fa;
+      --gold:   #fbbf24;
+      --rose:   #fb7185;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      filter: brightness(0.45) saturate(0.8);
+      transition: opacity 1.2s ease;
+    }
+
+    .hero-bg img:not(.slide-active) { opacity: 0; }
+    .hero-bg img.slide-active { opacity: 1; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,22,40,0.2) 0%,
+        rgba(10,22,40,0.6) 60%,
+        rgba(10,22,40,1) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title .accent { color: var(--teal); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border);
+    }
+
+    .badge.teal { border-color: var(--teal); color: var(--teal); }
+    .badge.blue { border-color: var(--blue); color: var(--blue); }
+    .badge.gold { border-color: var(--gold); color: var(--gold); }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ===== VISION ===== */
+    #vision .vision-card {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+    }
+
+    .vision-slideshow {
+      position: relative;
+      width: 100%;
+      background: rgba(0,0,0,0.2);
+      border-radius: 1rem 1rem 0 0;
+      overflow: hidden;
+      min-height: 200px;
+    }
+
+    .vision-img {
+      width: 100%;
+      display: block;
+      opacity: 0.95;
+      transition: opacity 1.2s ease;
+    }
+
+    .vision-slideshow .vision-img:not(.slide-active) {
+      display: none;
+    }
+
+    .vision-caption {
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .vision-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .vision-caption h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .vision-caption p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ===== CONNECTION ===== */
+    #connection .connect-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .connect-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .connect-box.school { border-color: rgba(96, 165, 250, 0.4); }
+    .connect-box.personal { border-color: rgba(45, 212, 191, 0.4); }
+
+    .connect-box .box-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .connect-box.school .box-label { color: var(--blue); }
+    .connect-box.personal .box-label { color: var(--teal); }
+
+    .connect-box h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .connect-arrow {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--muted);
+    }
+
+    .perspective-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .perspective-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-blue { background: var(--blue); }
+    .dot-teal { background: var(--teal); }
+    .dot-gold { background: var(--gold); }
+    .dot-rose { background: var(--rose); }
+
+    /* 3年見通し */
+    .years-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .year-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .year-card.current {
+      border-color: rgba(45,212,191,0.5);
+      background: rgba(45,212,191,0.05);
+    }
+
+    .year-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .year-card.current .year-label { color: var(--teal); }
+
+    .year-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .year-card ul {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .year-card ul li::before {
+      content: '· ';
+      color: var(--teal);
+    }
+
+    .current-badge {
+      position: absolute;
+      top: -0.6rem; right: 1rem;
+      background: var(--teal);
+      color: var(--bg);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== MANDALA ===== */
+    #mandala .mandala-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .mandala-img {
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .mandala-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mandala-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .mandala-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(45,212,191,0.15);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mandala-item h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .mandala-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ===== CYCLE ===== */
+    #cycle .cycle-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .cycle-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .cycle-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .cycle-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1rem;
+      z-index: 1;
+    }
+
+    .cycle-step .step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .cycle-step h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .cycle-step p {
+      font-size: 0.73rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .cycle-step.highlight {
+      border-color: rgba(45,212,191,0.5);
+      background: rgba(45,212,191,0.06);
+    }
+
+    .cycle-return {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0.5rem;
+    }
+
+    .cycle-return span {
+      display: inline-block;
+      border: 1px dashed var(--border);
+      border-radius: 2rem;
+      padding: 0.4rem 1.5rem;
+    }
+
+    /* ===== TOOLS ===== */
+    #tools .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(45,212,191,0.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .tool-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+    }
+
+    .tool-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s;
+      display: block;
+    }
+
+    .tool-card:hover .tool-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .tool-body {
+      padding: 1.1rem 1.25rem 1.3rem;
+    }
+
+    .tool-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .tool-body h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .tool-body p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tag-record   { color: var(--teal); }
+    .tag-think    { color: var(--blue); }
+    .tag-eval     { color: var(--gold); }
+    .tag-reflect  { color: var(--rose); }
+    .tag-design   { color: #a78bfa; }
+
+    /* ===== R7 LEARNINGS ===== */
+    #r7 .r7-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .r7-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 1.75rem;
+    }
+
+    .r7-card.success { border-color: rgba(45,212,191,0.3); }
+    .r7-card.challenge { border-color: rgba(251,191,36,0.3); }
+    .r7-card.full { grid-column: 1 / -1; border-color: rgba(96,165,250,0.3); }
+
+    .r7-card .card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .r7-card.success .card-label { color: var(--teal); }
+    .r7-card.challenge .card-label { color: var(--gold); }
+    .r7-card.full .card-label { color: var(--blue); }
+
+    .r7-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .r7-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .r7-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .r7-list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .r7-card.challenge .r7-list li::before { color: var(--gold); }
+    .r7-card.full .r7-list li::before { color: var(--blue); }
+
+    .quote-block {
+      background: rgba(96,165,250,0.07);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #c7d8f0;
+    }
+
+    /* ===== SCHEDULE ===== */
+    #schedule .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.65rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-item.done::before { background: var(--teal); }
+    .timeline-item.current::before {
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(251,191,36,0.2);
+    }
+
+    .timeline-date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-item.current .timeline-date { color: var(--gold); }
+
+    .timeline-content h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ===== SLIDESHOW ===== */
+    .slideshow-wrap {
+      position: relative;
+    }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+      z-index: 2;
+    }
+
+    .slide-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      transition: background 0.3s;
+    }
+
+    .slide-dot.active {
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .modal-inner img {
+      max-width: 100%;
+      max-height: 88vh;
+      border-radius: 0.75rem;
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -1rem; right: -1rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== PULL QUOTE ===== */
+    .pull-quote {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--text);
+      border-left: 4px solid var(--teal);
+      padding: 1.5rem 2rem;
+      margin: 0 0 3rem;
+      background: rgba(45,212,191,0.05);
+      border-radius: 0 1rem 1rem 0;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ===== STUDENT GOALS ===== */
+    .student-goals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .sg-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .sg-card .sg-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .sg-card.c1 { border-color: rgba(45,212,191,0.3); }
+    .sg-card.c2 { border-color: rgba(96,165,250,0.3); }
+    .sg-card.c3 { border-color: rgba(251,191,36,0.3); }
+
+    /* ===== APPROACH (merged Cycle + Mandala) ===== */
+    #approach .approach-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    /* ===== TOOL TABS ===== */
+    .tool-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tool-tab {
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+    }
+
+    .tool-tab:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+    .tool-tab.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--bg);
+    }
+
+    .tool-group { display: none; }
+    .tool-group.active { display: grid; }
+
+    /* ===== HERO HOOK ===== */
+    .hero-hook {
+      font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+
+      .connect-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .connect-arrow { transform: rotate(90deg); }
+      .years-grid { grid-template-columns: 1fr !important; }
+      .mandala-wrap { grid-template-columns: 1fr !important; }
+      .cycle-steps { grid-template-columns: 1fr !important; }
+      .cycle-step::after { display: none !important; }
+      .r7-grid { grid-template-columns: 1fr !important; }
+      .r7-card.full { grid-column: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">理科授業研究 2026</span>
+  <ul class="nav-links">
+    <li><a href="#backstory">きっかけ</a></li>
+    <li><a href="#connection">学校の文脈</a></li>
+    <li><a href="#vision">目指す姿</a></li>
+    <li><a href="#approach">実践のアプローチ</a></li>
+    <li><a href="#tools">ツール集</a></li>
+    <li><a href="#schedule">年間計画</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:none; padding:0;">
+  <div class="hero-bg">
+    <img src="images/rika_bouken_1.png" class="slide-active" alt="">
+    <img src="images/rika_bouken_2.png" alt="">
+    <img src="images/rika_bouken_3.png" alt="">
+    <img src="images/rika_bouken_4.png" alt="">
+    <img src="images/rika_bouken_5.png" alt="">
+    <img src="images/rika_bouken_6.png" alt="">
+    <img src="images/rika_bouken_7.png" alt="">
+    <img src="images/rika_bouken_8.png" alt="">
+    <img src="images/rika_bouken_9.png" alt="">
+    <img src="images/rika_bouken_10.png" alt="">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">令和8年度 個人研究テーマ</span>
+    <p class="hero-hook">あなたのクラスの子どもは、なぜそう考えたか、自分の言葉で説明できますか？</p>
+    <h1 class="hero-title">
+      <span class="accent">つなげる問い返し</span>を通して、<br>
+      思考のつながりを生み出し、<br>
+      学びを深める授業づくり
+    </h1>
+    <p class="hero-sub">文関小学校 理科専科 山田和博</p>
+    <div class="hero-badges">
+      <span class="badge teal">問い返し</span>
+      <span class="badge blue">思考のつながり</span>
+      <span class="badge gold">科学的に考える人</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BACKSTORY (旧R7) -->
+<section id="backstory" class="fade-in">
+  <p class="section-eyebrow">Why We Started</p>
+  <h2 class="section-title">この研究を始めたきっかけ</h2>
+  <blockquote class="pull-quote">
+    問い返しは、発問技術の工夫ではなく、<br>授業観の転換である。
+    <cite>― 令和7年度の実践を通じて</cite>
+  </blockquote>
+  <div class="r7-grid">
+    <div class="r7-card success">
+      <p class="card-label">R7 の手応え</p>
+      <h3>芽生えてきたもの</h3>
+      <ul class="r7-list">
+        <li>発言回数の増加・一部児童の積極的な参加</li>
+        <li>根拠を述べようとする姿勢の芽生え</li>
+        <li>「もっと知りたい」と書く児童の増加</li>
+        <li>てこの授業で児童自身が原理を言語化</li>
+      </ul>
+    </div>
+    <div class="r7-card challenge">
+      <p class="card-label">R7 の葛藤</p>
+      <h3>見えてきた壁</h3>
+      <ul class="r7-list">
+        <li>考えているが言葉にできない児童が多数</li>
+        <li>既習との接続が自然には出てこない</li>
+        <li>問い返しとふり返りの接続が不十分</li>
+        <li>違う結論が出た場合の納得感の設計</li>
+      </ul>
+    </div>
+    <div class="r7-card full">
+      <p class="card-label">だから今年は</p>
+      <h3>3段階のまとめ構造へ転換する</h3>
+      <ul class="r7-list">
+        <li>① 子どもたちの結論をそのまま整理する</li>
+        <li>② その結論の範囲・限界を確認する</li>
+        <li>③ そこから一般化し、科学的原理へ広げる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONNECTION -->
+<section id="connection" class="fade-in">
+  <p class="section-eyebrow">School Context</p>
+  <h2 class="section-title">学校研究の中での位置づけ</h2>
+  <p class="section-desc">個人テーマは学校研究主題の4視点と対応しています。理科専科として「問い返し」を切り口に実践します。</p>
+
+  <div class="connect-grid" style="margin-bottom:3rem;">
+    <div class="connect-box school">
+      <p class="box-label">学校研究主題</p>
+      <h3>つながりの中で学びを深める子どもの育成<br>― 子どもの問いと対話を中心にした授業づくり ―</h3>
+      <ul class="perspective-list">
+        <li><span class="dot dot-blue"></span>① つながり（友達・学び・生活）</li>
+        <li><span class="dot dot-teal"></span>② 問い（問いをもち続ける）</li>
+        <li><span class="dot dot-gold"></span>③ 対話（友達・教材・自分）</li>
+        <li><span class="dot dot-rose"></span>④ 見取り（思考・問い・対話）</li>
+      </ul>
+    </div>
+    <div class="connect-arrow">⇄</div>
+    <div class="connect-box personal">
+      <p class="box-label">個人テーマ（理科）</p>
+      <h3>つなげる問い返しを通して、思考のつながりを生み出し、学びを深める授業づくり</h3>
+      <ul class="perspective-list">
+        <li><span class="dot dot-blue"></span>思考の輪で多視点のつながりを可視化</li>
+        <li><span class="dot dot-teal"></span>問いのBefore→Afterで変化を見取る</li>
+        <li><span class="dot dot-gold"></span>問い返しを起点とした児童同士の対話設計</li>
+        <li><span class="dot dot-rose"></span>わがともシートとルーブリックで見取る</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="section-eyebrow" style="margin-bottom:1rem;">3か年の見通し</p>
+  <div class="years-grid">
+    <div class="year-card current">
+      <span class="current-badge">今年度</span>
+      <p class="year-label">R8（1年目）</p>
+      <h4>問いと対話を中心にした授業づくり</h4>
+      <ul>
+        <li>問い返しの型の確立</li>
+        <li>対話の設計と実践</li>
+        <li>見取りツールの整備</li>
+      </ul>
+    </div>
+    <div class="year-card">
+      <p class="year-label">R9（2年目）</p>
+      <h4>学校での学びを生活・社会とつなげる授業</h4>
+      <ul>
+        <li>教科横断的な学習</li>
+        <li>単元づくりの深化</li>
+      </ul>
+    </div>
+    <div class="year-card">
+      <p class="year-label">R10（3年目）</p>
+      <h4>生活・総合の充実</h4>
+      <ul>
+        <li>生活科・総合の単元づくり</li>
+        <li>教科と生活をつなぐ教材開発</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- VISION -->
+<section id="vision" class="fade-in">
+  <p class="section-eyebrow">Vision</p>
+  <h2 class="section-title">目指す子どもの姿</h2>
+  <p class="section-desc">正解を言える子どもではなく、「科学的に考えられる人」を育てる。</p>
+  <div class="vision-card" style="margin-bottom:2.5rem;">
+    <div class="vision-slideshow">
+      <img src="images/jissen_koso_1.png" alt="令和8年度 理科授業実践構想 1" class="vision-img slide-active">
+      <img src="images/jissen_koso_2.png" alt="令和8年度 理科授業実践構想 2" class="vision-img">
+      <img src="images/jissen_koso_3.png" alt="令和8年度 理科授業実践構想 3" class="vision-img">
+      <img src="images/jissen_koso_4.png" alt="令和8年度 理科授業実践構想 4" class="vision-img">
+      <img src="images/jissen_koso_5.png" alt="令和8年度 理科授業実践構想 5" class="vision-img">
+      <img src="images/jissen_koso_6.png" alt="令和8年度 理科授業実践構想 6" class="vision-img">
+      <img src="images/jissen_koso_7.png" alt="令和8年度 理科授業実践構想 7" class="vision-img">
+      <img src="images/jissen_koso_8.png" alt="令和8年度 理科授業実践構想 8" class="vision-img">
+      <img src="images/jissen_koso_9.png" alt="令和8年度 理科授業実践構想 9" class="vision-img">
+      <img src="images/jissen_koso_10.png" alt="令和8年度 理科授業実践構想 10" class="vision-img">
+    </div>
+    <div class="vision-caption">
+      <div class="vision-icon">🔭</div>
+      <div>
+        <h3>最終ゴール</h3>
+        <p>正解を言える子どもではなく、「科学的に考えられる人」を育てる。問い返しを起点として、思考のつながりを生み出し、学びを深めていくサイクルを学級文化として根付かせる。</p>
+      </div>
+    </div>
+  </div>
+  <div class="student-goals">
+    <div class="sg-card c1">
+      <span class="sg-icon">🔗</span>
+      複数の視点をつなげて考えることができる
+    </div>
+    <div class="sg-card c2">
+      <span class="sg-icon">💬</span>
+      友達の考えを取り入れて自分の考えを深められる
+    </div>
+    <div class="sg-card c3">
+      <span class="sg-icon">❓</span>
+      問いをもち続け、学習を通じて変化させていける
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- APPROACH (旧Mandala + Cycle) -->
+<section id="approach" class="fade-in">
+  <p class="section-eyebrow">Approach</p>
+  <h2 class="section-title">実践のアプローチ</h2>
+  <p class="section-desc">「問い返し」を核に、思考のつながり・対話・ふり返り・見取りのサイクルを回す。</p>
+  <div class="approach-inner">
+
+    <div>
+      <p class="section-eyebrow" style="margin-bottom:1rem;">実践サイクル</p>
+      <div class="cycle-wrap">
+        <div class="cycle-steps">
+          <div class="cycle-step highlight">
+            <p class="step-num">STEP 1</p>
+            <h4>問い返し</h4>
+            <p>教師が問い返しでゆさぶり、思考の主導権を児童へ</p>
+          </div>
+          <div class="cycle-step">
+            <p class="step-num">STEP 2</p>
+            <h4>思考のつながり</h4>
+            <p>思考の輪で既習・実験・生活と接続</p>
+          </div>
+          <div class="cycle-step">
+            <p class="step-num">STEP 3</p>
+            <h4>対話</h4>
+            <p>比較・共有・再構築。児童同士で問い返し合う</p>
+          </div>
+          <div class="cycle-step">
+            <p class="step-num">STEP 4</p>
+            <h4>ふり返り</h4>
+            <p>わがともシート・ミニふり返りで言語化</p>
+          </div>
+          <div class="cycle-step">
+            <p class="step-num">STEP 5</p>
+            <h4>見取り・接続</h4>
+            <p>記述から思考を見取り、次時の問い返しへ</p>
+          </div>
+        </div>
+        <div class="cycle-return">
+          <span>↺ このサイクルを繰り返すことで、学びを継続的に深める</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-eyebrow" style="margin-bottom:1rem;">研究の構造（マンダラチャート）</p>
+      <div class="mandala-wrap">
+        <img src="images/mandala.png" alt="研修マンダラチャート" class="mandala-img">
+        <div class="mandala-items">
+          <div class="mandala-item">
+            <div class="mandala-num">核</div>
+            <div><h4>問い返し</h4><p>「なんで？」「どうして？」「他と何が違う？」教師と児童が共有する対話の言語。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">①</div>
+            <div><h4>思考のつながり</h4><p>思考の輪で前の学習・実験・生活・未来・しくみを多視点でつなぐ。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">②</div>
+            <div><h4>対話</h4><p>教師→児童、児童↔児童、児童→自分の3層の対話構造を意図的に設計する。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">③</div>
+            <div><h4>問いの変化</h4><p>Before→Afterで問いの変容を捉える。「最初は〇〇と思っていたが、今は△△と考える」</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">④</div>
+            <div><h4>見取り</h4><p>わがともシートの記述と授業中の発言観察で児童の思考を見取り、次の学びへつなぐ。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">⑤</div>
+            <div><h4>ルーブリック</h4><p>思考・他者・問い・深まりの4観点で◎○△整理。評価ではなく、次の学びへの接続として活用。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">⑥</div>
+            <div><h4>ふり返り</h4><p>毎時間のミニふり返り＋単元末のわがともシートの蓄積＋ブラッシュアップカード。</p></div>
+          </div>
+          <div class="mandala-item">
+            <div class="mandala-num">⑦</div>
+            <div><h4>学びの深まり</h4><p>①意味づけ → ②限界の確認 → ③一般化の3段階で、子どもの考察を科学的原理へと引き上げる。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TOOLS -->
+<section id="tools" class="fade-in">
+  <p class="section-eyebrow">Tools</p>
+  <h2 class="section-title">活用ツール集</h2>
+  <p class="section-desc">用途別に3つに分けています。画像をクリックすると拡大できます。</p>
+
+  <div class="tool-tabs">
+    <button class="tool-tab active" data-group="think">思考ツール</button>
+    <button class="tool-tab" data-group="record">記録・ふり返り</button>
+    <button class="tool-tab" data-group="eval">評価・設計</button>
+  </div>
+
+  <!-- 思考ツール -->
+  <div class="tool-group tools-grid active" data-group="think">
+    <div class="tool-card">
+      <div class="tool-img-wrap" onclick="openModal('images/tool_shikounowa.png')">
+        <img src="images/tool_shikounowa.png" alt="思考の輪">
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-think">思考ツール</p>
+        <h3>つなげる・つながる「思考の輪」</h3>
+        <p>今日の学びを中心に、前の学習・実験結果・友達・生活・未来・しくみ・理由の6方向でつながりを可視化する。</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-img-wrap" onclick="openModal('images/tool_gengoka.png')">
+        <img src="images/tool_gengoka.png" alt="言語化の視点">
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-think">思考ツール</p>
+        <h3>言語化の視点</h3>
+        <p>「なんで？」「つまりどういうこと？」「もっといい方法は？」児童と共有する対話の共通言語。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 記録・ふり返り -->
+  <div class="tool-group tools-grid" data-group="record">
+    <div class="tool-card">
+      <div class="tool-img-wrap slideshow-wrap" onclick="openModal(this.querySelector('img.slide-active').src)">
+        <img src="images/tool_wagatomo_1.png" alt="わがともシート 1" class="slide-active" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 0.8s ease;">
+        <img src="images/tool_wagatomo_2.png" alt="わがともシート 2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <div class="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span></div>
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-record">記録ツール</p>
+        <h3>わがともシート</h3>
+        <p>わかったこと・がんばったこと・友達のよいところ・もっと知りたいことの4観点で学びを毎時間整理する。</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-img-wrap" onclick="openModal('images/tool_mini_furikaeri.png')">
+        <img src="images/tool_mini_furikaeri.png" alt="ミニふり返り視点">
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-reflect">ふり返りツール</p>
+        <h3>ミニふり返り視点</h3>
+        <p>毎時間のふり返りで使う視点シート。短時間で思考を言語化する習慣を育てる。</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-img-wrap slideshow-wrap" onclick="openModal(this.querySelector('.slide-active').src)">
+        <img src="images/tool_brushup_1.png" alt="ふり返りブラッシュアップカード 1" class="slide-active" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 0.8s ease;">
+        <img src="images/tool_brushup_2.png" alt="2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_brushup_3.png" alt="3" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_brushup_4.png" alt="4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_brushup_5.png" alt="5" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <div class="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span></div>
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-reflect">ふり返りツール</p>
+        <h3>ふり返りブラッシュアップカード</h3>
+        <p>ふり返りを段階的に高めるカード型ツール。記述の質を少しずつ引き上げ、学びの深まりを自覚させる。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 評価・設計 -->
+  <div class="tool-group tools-grid" data-group="eval">
+    <div class="tool-card">
+      <div class="tool-img-wrap" onclick="openModal('images/tool_kagakusha.png')">
+        <img src="images/tool_kagakusha.png" alt="科学者レベル">
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-eval">評価ツール</p>
+        <h3>科学者レベル</h3>
+        <p>Lv.1 気づいた → Lv.2 予想した → Lv.3 実験した → Lv.4 理由を考えた → Lv.5 つながりを見つけた</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-img-wrap" onclick="openModal('images/tool_jishingoki.png')">
+        <img src="images/tool_jishingoki.png" alt="考察 自信号機">
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-eval">自己評価ツール</p>
+        <h3>考察 自信号機</h3>
+        <p>自分の考察の質を信号機（◎〇△）で自己確認。メタ認知を促し、ふり返りの出発点にする。</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-img-wrap slideshow-wrap" onclick="openModal(this.querySelector('.slide-active').src)">
+        <img src="images/tool_toikaeishi_1.png"  alt="1"  class="slide-active" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_2.png"  alt="2"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_3.png"  alt="3"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_4.png"  alt="4"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_5.png"  alt="5"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_6.png"  alt="6"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_7.png"  alt="7"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_8.png"  alt="8"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_9.png"  alt="9"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_10.png" alt="10" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_11.png" alt="11" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_12.png" alt="12" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <img src="images/tool_toikaeishi_13.png" alt="13" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s ease;">
+        <div class="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span></div>
+      </div>
+      <div class="tool-body">
+        <p class="tool-tag tag-design">授業設計ツール</p>
+        <h3>問い返しと見取りの設計図</h3>
+        <p>問い返しの場面・見取りの視点・授業の流れを一枚で設計するためのフレームワーク。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SCHEDULE -->
+<section id="schedule" class="fade-in">
+  <p class="section-eyebrow">Schedule</p>
+  <h2 class="section-title">令和8年度 年間計画</h2>
+  <p class="section-desc">全8回の校内研修スケジュール。</p>
+  <div class="timeline">
+    <div class="timeline-item current">
+      <p class="timeline-date">4月15日 ― 第1回</p>
+      <div class="timeline-content">
+        <h4>年間の見通し</h4>
+        <p>全体計画の共有・3つの力の具体化・個人テーマの設定</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">5月27日 ― 第2回</p>
+      <div class="timeline-content">
+        <h4>提案授業（研修主任）</h4>
+        <p>見取りの共有・教科と教科をつなげる見通し・グループ研究計画</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">6月24日 ― 第3回</p>
+      <div class="timeline-content">
+        <h4>全校授業①</h4>
+        <p>授業者の個人テーマによる公開授業</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">夏休み</p>
+      <div class="timeline-content">
+        <h4>教科研修</h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">9月9日 ― 第4回</p>
+      <div class="timeline-content">
+        <h4>途中振り返り</h4>
+        <p>カリキュラムの整理・2学期以降の見通し</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">10月28日 ― 第5回</p>
+      <div class="timeline-content">
+        <h4>全校授業②</h4>
+        <p>授業者の個人テーマによる公開授業</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">11月18日 ― 第6回</p>
+      <div class="timeline-content">
+        <h4>研修支援訪問・全校授業③</h4>
+        <p>授業者の個人テーマによる公開授業</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">1月20日 ― 第7回</p>
+      <div class="timeline-content">
+        <h4>研究のまとめ</h4>
+        <p>グループの研究まとめ</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">2月24日 ― 第8回</p>
+      <div class="timeline-content">
+        <h4>年間の振り返り</h4>
+        <p>グループごとに発表・カリキュラムの整理・来年度に向けて</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>令和8年度 校内研修 個人研究 — 文関小学校 理科専科 山田和博</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal()">
+  <div class="modal-inner" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img id="modal-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  // Modal
+  function openModal(src) {
+    document.getElementById('modal-img').src = src;
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ツールカード スライドショー（5秒切り替え）
+  document.querySelectorAll('.slideshow-wrap').forEach(wrap => {
+    const imgs = wrap.querySelectorAll('img');
+    const dots = wrap.querySelectorAll('.slide-dot');
+    let current = 0;
+    setInterval(() => {
+      imgs[current].style.opacity = '0';
+      imgs[current].classList.remove('slide-active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = (current + 1) % imgs.length;
+      imgs[current].style.opacity = '1';
+      imgs[current].classList.add('slide-active');
+      if (dots[current]) dots[current].classList.add('active');
+    }, 5000);
+  });
+
+  // ヒーロー背景 スライドショー（5秒切り替え）
+  (function() {
+    const imgs = document.querySelectorAll('.hero-bg img');
+    let current = 0;
+    setInterval(() => {
+      imgs[current].classList.remove('slide-active');
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add('slide-active');
+    }, 5000);
+  })();
+
+  // ビジョン スライドショー（5秒切り替え）
+  (function() {
+    const imgs = document.querySelectorAll('.vision-slideshow .vision-img');
+    let current = 0;
+    setInterval(() => {
+      imgs[current].classList.remove('slide-active');
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add('slide-active');
+    }, 5000);
+  })();
+
+  // ツールタブ切り替え
+  document.querySelectorAll('.tool-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tool-group').forEach(g => g.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.tool-group[data-group="${tab.dataset.group}"]`).classList.add('active');
+    });
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
