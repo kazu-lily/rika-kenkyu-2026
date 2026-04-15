@@ -1275,6 +1275,79 @@
       font-style: italic;
     }
 
+    /* ===== SUMMARY SECTION ===== */
+    .summary-section {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .summary-lead {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--muted);
+    }
+
+    .summary-lead strong { color: var(--teal); font-weight: 700; }
+
+    .lesson-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .lf-step {
+      background: var(--card);
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 1rem;
+      padding: 0.85rem 2.5rem;
+      text-align: center;
+      min-width: 210px;
+    }
+
+    .lf-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .lf-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .lf-arr {
+      font-size: 1.1rem;
+      color: var(--muted);
+      padding: 0.35rem 0;
+      opacity: 0.5;
+    }
+
+    .lf-cycle {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 1rem;
+      padding: 0.35rem 1rem;
+      min-width: 210px;
+    }
+
     /* ===== OVERVIEW STRIP ===== */
     .overview-strip {
       background: var(--bg2);
@@ -1518,6 +1591,7 @@
       .overview-item { border-right: none !important; border-bottom: 1px solid var(--border); }
       .overview-item:last-child { border-bottom: none; }
       .core-tools-grid { grid-template-columns: 1fr !important; }
+      .summary-inner { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -1581,18 +1655,51 @@
     <div class="overview-grid">
       <div class="overview-item">
         <span class="overview-num">01</span>
-        <h3>なぜこの実践をするのか</h3>
-        <p>R7年度の学びと課題から生まれた「問い返し」を核にした授業観の転換と、その動機。</p>
+        <h3>なぜ「問い返し」を軸にした授業を目指しているのか</h3>
+        <p>R7年度の実践から見えてきた課題と手応え、そして授業観の転換に至った経緯。</p>
       </div>
       <div class="overview-item">
         <span class="overview-num">02</span>
-        <h3>何を目指しているのか</h3>
-        <p>学校研究主題との接続、目指す子どもの姿、5ステップの実践サイクルと研究構造。</p>
+        <h3>学校研究とどのようにつながっているのか</h3>
+        <p>学校研究主題「つながりの中で学びを深める子どもの育成」との4視点の対応関係。</p>
       </div>
       <div class="overview-item">
         <span class="overview-num">03</span>
-        <h3>どんな授業をしているのか</h3>
-        <p>問い返しの実際の対話場面、3段階のまとめ構造、変容を見取るためのツール群。</p>
+        <h3>実際にどのように授業で実践し、子どもを見取っているのか</h3>
+        <p>問い返しの対話場面、3段階のまとめ構造、わがとも・発言・対話の見取り視点。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="summary-section">
+  <div class="summary-inner">
+    <div>
+      <p class="section-eyebrow" style="margin-bottom:1rem;">本実践の概要</p>
+      <p class="summary-lead">
+        このサイトでは、<strong>「問い返し」を軸に</strong>、<br>
+        子ども同士の対話がつながり、<br>
+        思考が広がっていく理科授業を目指した実践をまとめています。
+      </p>
+    </div>
+    <div>
+      <p class="section-eyebrow" style="margin-bottom:1rem;">授業の全体像</p>
+      <div class="lesson-flow">
+        <div class="lf-step">
+          <span class="lf-label">思考の輪</span>
+          <span class="lf-name">考える</span>
+        </div>
+        <div class="lf-arr">↓</div>
+        <div class="lf-step">
+          <span class="lf-label">言語化の視点</span>
+          <span class="lf-name">話す</span>
+        </div>
+        <div class="lf-arr">↓</div>
+        <div class="lf-step">
+          <span class="lf-label">わがとも</span>
+          <span class="lf-name">ふり返る</span>
+        </div>
+        <p class="lf-cycle">↺ 次の学びへつなげる</p>
       </div>
     </div>
   </div>
@@ -1652,22 +1759,18 @@
     <div class="ba-card ba-before">
       <p class="ba-label">Before ― これまでの授業</p>
       <ul class="ba-list">
-        <li>正解を言える子どもを育てる</li>
-        <li>教師の問いに答える授業</li>
-        <li>知識は1回きりの学びで完結</li>
-        <li>考えているが言葉にできない子が多い</li>
-        <li>ふり返りが感想で終わる</li>
+        <li>教師がまとめる授業</li>
+        <li>正解を早く出すことが中心</li>
+        <li>子どもは受け身になりやすい</li>
       </ul>
     </div>
     <div class="ba-arrow">→</div>
     <div class="ba-card ba-after">
       <p class="ba-label">After ― 目指す授業</p>
       <ul class="ba-list">
-        <li>科学的に考えられる人を育てる</li>
-        <li>子どもが問いをもち続ける授業</li>
-        <li>既習・実験・生活がつながり続ける</li>
-        <li>根拠をもって自分の言葉で説明できる</li>
-        <li>ふり返りが次の問いを生む</li>
+        <li>子ども同士の考えがつながる授業</li>
+        <li>問いを通して考えを深める</li>
+        <li>自分の言葉で説明しようとする姿が増える</li>
       </ul>
     </div>
   </div>
@@ -1803,8 +1906,8 @@
     </div>
   </div>
   <div class="quote-block" style="margin-top:2.5rem;">
-    個人の実践ではなく、学校全体の研究を具体的な授業として表現する。<br>
-    理科の授業で「問い・対話・つながり」を体現することが、この研究の立ち位置です。
+    個人の実践ではなく、学校全体の研究を具体的な授業として表現することを目指しています。<br>
+    理科の授業で「問い・対話・つながり」を体現することが、この実践の立ち位置です。
   </div>
 </section>
 
@@ -1986,15 +2089,15 @@
       <div class="step-list">
         <div class="step-list-item">
           <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">①</div>
-          <p><strong>子どもたちの結論をそのまま整理する</strong><br>「みんなの考えをまとめると、こういうことが言えそうです」</p>
+          <p><strong>子どもの結論</strong><br>「みんなの考えをまとめると、こういうことが言えそうです」</p>
         </div>
         <div class="step-list-item">
           <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">②</div>
-          <p><strong>その結論の範囲・限界を確認する</strong><br>「でも、これって全部の場合に言える？条件があるかな？」</p>
+          <p><strong>その条件で言える範囲（限界）</strong><br>「でも、これって全部の場合に言える？条件があるかな？」</p>
         </div>
         <div class="step-list-item">
           <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">③</div>
-          <p><strong>一般化し、科学的原理へ広げる</strong><br>「じゃあ、理科的に言うとどういうことかな？他の現象でも言えそう？」</p>
+          <p><strong>他の場合でも言えるか（一般化）</strong><br>「じゃあ、理科的に言うとどういうことかな？他の現象でも言えそう？」</p>
         </div>
       </div>
     </div>
@@ -2029,7 +2132,7 @@
         <ul class="r7-list">
           <li>わかったこと</li>
           <li>がんばったこと</li>
-          <li>友達のよいところ</li>
+          <li>ともだちのよいところ</li>
           <li>もっと知りたいこと</li>
         </ul>
       </div>
@@ -2050,6 +2153,13 @@
     </div>
     <p class="kansatsu-note">結果だけでなく、「思考の過程」や「変化」を大切にしています。</p>
   </div>
+
+  <div style="margin-top:2rem; padding:1.5rem 2rem; background:rgba(96,165,250,0.04); border:1px solid rgba(96,165,250,0.2); border-radius:1rem;">
+    <p style="font-size:0.9rem; color:var(--muted); line-height:1.8; text-align:center;">
+      これらの実践を通して、単元ごとの理解だけでなく、<br>
+      長期的に「<span style="color:var(--blue); font-weight:700;">科学的に考える力</span>」が育っていくことを目指しています。
+    </p>
+  </div>
 </section>
 
 <hr class="divider">
@@ -2068,7 +2178,7 @@
       <img src="images/tool_shikounowa.png" alt="思考の輪" class="core-tool-img" onclick="openModal('images/tool_shikounowa.png')">
       <div class="core-tool-body">
         <h3>思考の輪</h3>
-        <p>今日の学びを中心に、既習・友達・生活・これからの6方向でつながりを可視化。子どもの思考を「広げる」枠組み。</p>
+        <p>子どもの考えを「既習・友達・生活・これから」とつなげるための枠組み。多視点でつながりを可視化する。</p>
       </div>
     </div>
     <div class="core-tool-card">
@@ -2076,7 +2186,7 @@
       <img src="images/tool_gengoka.png" alt="言語化の視点" class="core-tool-img" onclick="openModal('images/tool_gengoka.png')">
       <div class="core-tool-body">
         <h3>言語化の視点</h3>
-        <p>「なんで？」「つまり？」「他と比べると？」など問い返しの言葉を可視化。教師と児童が共有する対話の共通言語。</p>
+        <p>「なんで？」「つまり？」「他と比べると？」などの問い返しを通して、考えを言葉にさせるための支援。</p>
       </div>
     </div>
     <div class="core-tool-card">
@@ -2084,7 +2194,7 @@
       <img src="images/tool_wagatomo_1.png" alt="わがともシート" class="core-tool-img" onclick="openModal('images/tool_wagatomo_1.png')">
       <div class="core-tool-body">
         <h3>わがともシート</h3>
-        <p>わかったこと・がんばったこと・友達のよいところ・もっと知りたいことの4観点で学びと変容を毎時間ふり返る。</p>
+        <p>「わかったこと・がんばったこと・ともだちのよいところ・もっと知りたいこと」の観点で、学びと変容をふり返る。</p>
       </div>
     </div>
   </div>
