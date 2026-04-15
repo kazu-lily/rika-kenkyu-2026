@@ -911,12 +911,196 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    /* ===== HERO SCROLL ===== */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: hero-bounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes hero-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.35; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 0.6; }
+    }
+
+    /* ===== BEFORE / AFTER ===== */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .ba-card {
+      border-radius: 1.2rem;
+      padding: 2rem 1.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .ba-card.ba-before {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(148,163,184,0.2);
+    }
+
+    .ba-card.ba-after {
+      background: rgba(45,212,191,0.05);
+      border-color: rgba(45,212,191,0.35);
+    }
+
+    .ba-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .ba-before .ba-label { color: var(--muted); }
+    .ba-after  .ba-label { color: var(--teal); }
+
+    .ba-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .ba-list li {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .ba-before .ba-list li { color: var(--muted); }
+    .ba-before .ba-list li::before {
+      content: '✕';
+      position: absolute; left: 0;
+      color: rgba(148,163,184,0.4);
+      font-size: 0.72rem;
+      top: 0.15em;
+    }
+    .ba-after .ba-list li { color: var(--text); }
+    .ba-after .ba-list li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--teal);
+      font-size: 0.72rem;
+      top: 0.15em;
+    }
+
+    .ba-arrow {
+      font-size: 2rem;
+      color: var(--teal);
+      opacity: 0.6;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ===== SCHOOL FLOW ===== */
+    .school-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .sf-box {
+      width: 100%;
+      max-width: 580px;
+      border-radius: 1.2rem;
+      padding: 1.75rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .sf-box.sf-school {
+      border-color: rgba(96,165,250,0.4);
+      background: rgba(96,165,250,0.05);
+    }
+
+    .sf-box.sf-personal {
+      border-color: rgba(45,212,191,0.4);
+      background: rgba(45,212,191,0.05);
+    }
+
+    .sf-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .sf-school .sf-label { color: var(--blue); }
+    .sf-personal .sf-label { color: var(--teal); }
+
+    .sf-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .sf-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .sf-arrow {
+      font-size: 1.5rem;
+      color: var(--muted);
+      padding: 0.6rem 0;
+    }
+
+    .sf-four {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    .sf-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    /* ===== APPROACH BRIDGE ===== */
+    .approach-bridge {
+      text-align: center;
+    }
+
+    .approach-bridge p {
+      display: inline-block;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 2rem;
+      padding: 0.75rem 2rem;
+    }
+
     @media (max-width: 768px) {
       nav { display: none; }
-
-      .connect-grid {
-        grid-template-columns: 1fr !important;
-      }
+      .ba-grid { grid-template-columns: 1fr !important; }
+      .ba-arrow { transform: rotate(90deg); }
+      .connect-grid { grid-template-columns: 1fr !important; }
       .connect-arrow { transform: rotate(90deg); }
       .years-grid { grid-template-columns: 1fr !important; }
       .mandala-wrap { grid-template-columns: 1fr !important; }
@@ -924,6 +1108,8 @@
       .cycle-step::after { display: none !important; }
       .r7-grid { grid-template-columns: 1fr !important; }
       .r7-card.full { grid-column: 1 !important; }
+      .student-goals { grid-template-columns: 1fr !important; }
+      .sf-four { gap: 0.4rem; }
     }
   </style>
 </head>
@@ -934,8 +1120,8 @@
   <span class="nav-brand">理科授業研究 2026</span>
   <ul class="nav-links">
     <li><a href="#backstory">きっかけ</a></li>
-    <li><a href="#connection">学校の文脈</a></li>
     <li><a href="#vision">目指す姿</a></li>
+    <li><a href="#connection">学校の文脈</a></li>
     <li><a href="#approach">実践のアプローチ</a></li>
     <li><a href="#tools">ツール集</a></li>
     <li><a href="#schedule">年間計画</a></li>
@@ -972,6 +1158,12 @@
       <span class="badge gold">科学的に考える人</span>
     </div>
   </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
+      <path d="M7 1v18M1 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 </section>
 
 <hr class="divider">
@@ -980,10 +1172,6 @@
 <section id="backstory" class="fade-in">
   <p class="section-eyebrow">Why We Started</p>
   <h2 class="section-title">この研究を始めたきっかけ</h2>
-  <blockquote class="pull-quote">
-    問い返しは、発問技術の工夫ではなく、<br>授業観の転換である。
-    <cite>― 令和7年度の実践を通じて</cite>
-  </blockquote>
   <div class="r7-grid">
     <div class="r7-card success">
       <p class="card-label">R7 の手応え</p>
@@ -1015,6 +1203,86 @@
       </ul>
     </div>
   </div>
+  <blockquote class="pull-quote" style="margin-top:2.5rem; margin-bottom:0;">
+    問い返しは、発問技術の工夫ではなく、<br>授業観の転換である。
+    <cite>― 令和7年度の実践を通じて</cite>
+  </blockquote>
+</section>
+
+<hr class="divider">
+
+<!-- BEFORE / AFTER -->
+<section id="beforeafter" class="fade-in">
+  <p class="section-eyebrow">Before / After</p>
+  <h2 class="section-title">授業の<span style="color:var(--teal)">変化</span>のイメージ</h2>
+  <p class="section-desc">「問い返し」を核に置くことで、授業の風景がこう変わる。</p>
+  <div class="ba-grid">
+    <div class="ba-card ba-before">
+      <p class="ba-label">Before ― これまでの授業</p>
+      <ul class="ba-list">
+        <li>正解を言える子どもを育てる</li>
+        <li>教師の問いに答える授業</li>
+        <li>知識は1回きりの学びで完結</li>
+        <li>考えているが言葉にできない子が多い</li>
+        <li>ふり返りが感想で終わる</li>
+      </ul>
+    </div>
+    <div class="ba-arrow">→</div>
+    <div class="ba-card ba-after">
+      <p class="ba-label">After ― 目指す授業</p>
+      <ul class="ba-list">
+        <li>科学的に考えられる人を育てる</li>
+        <li>子どもが問いをもち続ける授業</li>
+        <li>既習・実験・生活がつながり続ける</li>
+        <li>根拠をもって自分の言葉で説明できる</li>
+        <li>ふり返りが次の問いを生む</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- VISION -->
+<section id="vision" class="fade-in">
+  <p class="section-eyebrow">Vision</p>
+  <h2 class="section-title">目指す子どもの姿</h2>
+  <p class="section-desc">正解を言える子どもではなく、「科学的に考えられる人」を育てる。</p>
+  <div class="vision-card" style="margin-bottom:2.5rem;">
+    <div class="vision-slideshow">
+      <img src="images/jissen_koso_1.png" alt="令和8年度 理科授業実践構想 1" class="vision-img slide-active">
+      <img src="images/jissen_koso_2.png" alt="令和8年度 理科授業実践構想 2" class="vision-img">
+      <img src="images/jissen_koso_3.png" alt="令和8年度 理科授業実践構想 3" class="vision-img">
+      <img src="images/jissen_koso_4.png" alt="令和8年度 理科授業実践構想 4" class="vision-img">
+      <img src="images/jissen_koso_5.png" alt="令和8年度 理科授業実践構想 5" class="vision-img">
+      <img src="images/jissen_koso_6.png" alt="令和8年度 理科授業実践構想 6" class="vision-img">
+      <img src="images/jissen_koso_7.png" alt="令和8年度 理科授業実践構想 7" class="vision-img">
+      <img src="images/jissen_koso_8.png" alt="令和8年度 理科授業実践構想 8" class="vision-img">
+      <img src="images/jissen_koso_9.png" alt="令和8年度 理科授業実践構想 9" class="vision-img">
+      <img src="images/jissen_koso_10.png" alt="令和8年度 理科授業実践構想 10" class="vision-img">
+    </div>
+    <div class="vision-caption">
+      <div class="vision-icon">🔭</div>
+      <div>
+        <h3>最終ゴール</h3>
+        <p>正解を言える子どもではなく、「科学的に考えられる人」を育てる。問い返しを起点として、思考のつながりを生み出し、学びを深めていくサイクルを学級文化として根付かせる。</p>
+      </div>
+    </div>
+  </div>
+  <div class="student-goals">
+    <div class="sg-card c1">
+      <span class="sg-icon">🔗</span>
+      複数の視点をつなげて考えることができる
+    </div>
+    <div class="sg-card c2">
+      <span class="sg-icon">💬</span>
+      友達の考えを取り入れて自分の考えを深められる
+    </div>
+    <div class="sg-card c3">
+      <span class="sg-icon">❓</span>
+      問いをもち続け、学習を通じて変化させていける
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
@@ -1024,6 +1292,27 @@
   <p class="section-eyebrow">School Context</p>
   <h2 class="section-title">学校研究の中での位置づけ</h2>
   <p class="section-desc">個人テーマは学校研究主題の4視点と対応しています。理科専科として「問い返し」を切り口に実践します。</p>
+
+  <div class="school-flow">
+    <div class="sf-box sf-school">
+      <p class="sf-label">学校研究主題</p>
+      <p class="sf-title">つながりの中で学びを深める子どもの育成</p>
+      <p class="sf-sub">― 子どもの問いと対話を中心にした授業づくり ―</p>
+    </div>
+    <div class="sf-arrow">↓</div>
+    <div class="sf-four">
+      <div class="sf-item"><span class="dot dot-blue"></span>①つながり</div>
+      <div class="sf-item"><span class="dot dot-teal"></span>②問い</div>
+      <div class="sf-item"><span class="dot dot-gold"></span>③対話</div>
+      <div class="sf-item"><span class="dot dot-rose"></span>④見取り</div>
+    </div>
+    <div class="sf-arrow">↓</div>
+    <div class="sf-box sf-personal">
+      <p class="sf-label">理科専科の実践</p>
+      <p class="sf-title">「つなげる問い返し」</p>
+      <p class="sf-sub">思考のつながりを生み出し、学びを深める授業づくり</p>
+    </div>
+  </div>
 
   <div class="connect-grid" style="margin-bottom:3rem;">
     <div class="connect-box school">
@@ -1082,50 +1371,6 @@
 
 <hr class="divider">
 
-<!-- VISION -->
-<section id="vision" class="fade-in">
-  <p class="section-eyebrow">Vision</p>
-  <h2 class="section-title">目指す子どもの姿</h2>
-  <p class="section-desc">正解を言える子どもではなく、「科学的に考えられる人」を育てる。</p>
-  <div class="vision-card" style="margin-bottom:2.5rem;">
-    <div class="vision-slideshow">
-      <img src="images/jissen_koso_1.png" alt="令和8年度 理科授業実践構想 1" class="vision-img slide-active">
-      <img src="images/jissen_koso_2.png" alt="令和8年度 理科授業実践構想 2" class="vision-img">
-      <img src="images/jissen_koso_3.png" alt="令和8年度 理科授業実践構想 3" class="vision-img">
-      <img src="images/jissen_koso_4.png" alt="令和8年度 理科授業実践構想 4" class="vision-img">
-      <img src="images/jissen_koso_5.png" alt="令和8年度 理科授業実践構想 5" class="vision-img">
-      <img src="images/jissen_koso_6.png" alt="令和8年度 理科授業実践構想 6" class="vision-img">
-      <img src="images/jissen_koso_7.png" alt="令和8年度 理科授業実践構想 7" class="vision-img">
-      <img src="images/jissen_koso_8.png" alt="令和8年度 理科授業実践構想 8" class="vision-img">
-      <img src="images/jissen_koso_9.png" alt="令和8年度 理科授業実践構想 9" class="vision-img">
-      <img src="images/jissen_koso_10.png" alt="令和8年度 理科授業実践構想 10" class="vision-img">
-    </div>
-    <div class="vision-caption">
-      <div class="vision-icon">🔭</div>
-      <div>
-        <h3>最終ゴール</h3>
-        <p>正解を言える子どもではなく、「科学的に考えられる人」を育てる。問い返しを起点として、思考のつながりを生み出し、学びを深めていくサイクルを学級文化として根付かせる。</p>
-      </div>
-    </div>
-  </div>
-  <div class="student-goals">
-    <div class="sg-card c1">
-      <span class="sg-icon">🔗</span>
-      複数の視点をつなげて考えることができる
-    </div>
-    <div class="sg-card c2">
-      <span class="sg-icon">💬</span>
-      友達の考えを取り入れて自分の考えを深められる
-    </div>
-    <div class="sg-card c3">
-      <span class="sg-icon">❓</span>
-      問いをもち続け、学習を通じて変化させていける
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
 <!-- APPROACH (旧Mandala + Cycle) -->
 <section id="approach" class="fade-in">
   <p class="section-eyebrow">Approach</p>
@@ -1167,6 +1412,10 @@
           <span>↺ このサイクルを繰り返すことで、学びを継続的に深める</span>
         </div>
       </div>
+    </div>
+
+    <div class="approach-bridge">
+      <p>このサイクルを支える研究構造を、マンダラチャートとして整理しました。「問い返し」を核に、7つの要素がどうつながるかを確認できます。</p>
     </div>
 
     <div>
