@@ -1275,6 +1275,228 @@
       font-style: italic;
     }
 
+    /* ===== OVERVIEW STRIP ===== */
+    .overview-strip {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .overview-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .overview-inner .section-eyebrow { margin-bottom: 2rem; }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .overview-item {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .overview-item:last-child { border-right: none; }
+
+    .overview-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(45,212,191,0.18);
+      letter-spacing: -0.03em;
+    }
+
+    .overview-item h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .overview-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ===== SUPPLEMENT BLOCKS ===== */
+    .supplement-block {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+
+    .supplement-block h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .step-list-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-list-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .step-list-item p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .step-list-item strong { color: var(--text); }
+
+    /* peer dialogue */
+    .dl.peer { align-self: flex-end; align-items: flex-end; }
+    .dl.peer .dl-name { color: var(--blue); }
+    .dl.peer .dl-bubble {
+      background: rgba(96,165,250,0.09);
+      border: 1px solid rgba(96,165,250,0.22);
+      border-radius: 1rem 0.3rem 1rem 1rem;
+    }
+
+    /* ===== CORE TOOLS ===== */
+    .core-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .core-tool-card {
+      background: var(--bg2);
+      border: 1px solid rgba(45,212,191,0.3);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .core-tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--teal), var(--blue));
+    }
+
+    .core-tool-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      background: rgba(45,212,191,0.12);
+      border: 1px solid rgba(45,212,191,0.25);
+      border-radius: 1rem;
+      padding: 0.15rem 0.55rem;
+      z-index: 1;
+    }
+
+    .core-tool-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: contain;
+      background: rgba(255,255,255,0.03);
+      display: block;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .core-tool-card:hover .core-tool-img { transform: scale(1.03); }
+
+    .core-tool-body {
+      padding: 1.1rem 1.25rem 1.3rem;
+    }
+
+    .core-tool-body h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .core-tool-body p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .core-tools-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .core-tools-flow .flow-step {
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      background: rgba(45,212,191,0.07);
+      border: 1px solid rgba(45,212,191,0.2);
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+
+    .core-tools-flow .flow-arrow {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .core-tools-flow .flow-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-left: 0.5rem;
+    }
+
+    .other-tools-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
     @media (max-width: 768px) {
       nav { display: none; }
       .ba-grid { grid-template-columns: 1fr !important; }
@@ -1292,6 +1514,10 @@
       .kansatsu-grid { grid-template-columns: 1fr !important; }
       .thinking-map { flex-direction: column; }
       .tm-connector { transform: rotate(90deg); }
+      .overview-grid { grid-template-columns: 1fr !important; }
+      .overview-item { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .overview-item:last-child { border-bottom: none; }
+      .core-tools-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -1348,6 +1574,29 @@
     </svg>
   </div>
 </section>
+
+<div class="overview-strip">
+  <div class="overview-inner">
+    <p class="section-eyebrow">このサイトでわかること</p>
+    <div class="overview-grid">
+      <div class="overview-item">
+        <span class="overview-num">01</span>
+        <h3>なぜこの実践をするのか</h3>
+        <p>R7年度の学びと課題から生まれた「問い返し」を核にした授業観の転換と、その動機。</p>
+      </div>
+      <div class="overview-item">
+        <span class="overview-num">02</span>
+        <h3>何を目指しているのか</h3>
+        <p>学校研究主題との接続、目指す子どもの姿、5ステップの実践サイクルと研究構造。</p>
+      </div>
+      <div class="overview-item">
+        <span class="overview-num">03</span>
+        <h3>どんな授業をしているのか</h3>
+        <p>問い返しの実際の対話場面、3段階のまとめ構造、変容を見取るためのツール群。</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <hr class="divider">
 
@@ -1708,6 +1957,47 @@
         子どもの考えを<strong>言葉にさせ、つなげ、深める</strong>ことを大切にしています。
       </div>
     </div>
+
+    <!-- 児童同士の対話 -->
+    <div class="supplement-block" style="border-color: rgba(96,165,250,0.25);">
+      <h4 style="color:var(--blue);">＋ 児童同士の対話へ広げる</h4>
+      <div class="dialogue-flow" style="padding:0;">
+        <div class="dl child">
+          <span class="dl-name">子どもA</span>
+          <div class="dl-bubble">ぼくは「軽くなるから上にいく」と思うんだけど</div>
+        </div>
+        <div class="dl peer">
+          <span class="dl-name">子どもB</span>
+          <div class="dl-bubble">「軽くなる」って、重さが変わるってこと？</div>
+        </div>
+        <div class="dl child">
+          <span class="dl-name">子どもA</span>
+          <div class="dl-bubble">あ、重さじゃなくて…体積が大きくなるのかも</div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border);">
+        教師の問い返しを模倣するように、児童同士が問い返し合う姿を育てる。
+      </p>
+    </div>
+
+    <!-- 3段階のまとめ -->
+    <div class="supplement-block" style="border-color: rgba(251,191,36,0.25);">
+      <h4 style="color:var(--gold);">授業の最後：3段階のまとめ構造</h4>
+      <div class="step-list">
+        <div class="step-list-item">
+          <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">①</div>
+          <p><strong>子どもたちの結論をそのまま整理する</strong><br>「みんなの考えをまとめると、こういうことが言えそうです」</p>
+        </div>
+        <div class="step-list-item">
+          <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">②</div>
+          <p><strong>その結論の範囲・限界を確認する</strong><br>「でも、これって全部の場合に言える？条件があるかな？」</p>
+        </div>
+        <div class="step-list-item">
+          <div class="step-list-num" style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold);">③</div>
+          <p><strong>一般化し、科学的原理へ広げる</strong><br>「じゃあ、理科的に言うとどういうことかな？他の現象でも言えそう？」</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 思考のつながり -->
@@ -1768,8 +2058,46 @@
 <section id="tools" class="fade-in">
   <p class="section-eyebrow">Tools</p>
   <h2 class="section-title">活用ツール集</h2>
-  <p class="section-desc">用途別に3つに分けています。画像をクリックすると拡大できます。</p>
+  <p class="section-desc">「考える → 表現する → ふり返る」の流れを、3つの核となるツールで支えます。</p>
 
+  <!-- 核となる3つのツール -->
+  <p class="section-eyebrow" style="margin-bottom:1rem;">核となる3つのツール</p>
+  <div class="core-tools-grid">
+    <div class="core-tool-card">
+      <span class="core-tool-badge">① 考える</span>
+      <img src="images/tool_shikounowa.png" alt="思考の輪" class="core-tool-img" onclick="openModal('images/tool_shikounowa.png')">
+      <div class="core-tool-body">
+        <h3>思考の輪</h3>
+        <p>今日の学びを中心に、既習・友達・生活・これからの6方向でつながりを可視化。子どもの思考を「広げる」枠組み。</p>
+      </div>
+    </div>
+    <div class="core-tool-card">
+      <span class="core-tool-badge">② 表現する</span>
+      <img src="images/tool_gengoka.png" alt="言語化の視点" class="core-tool-img" onclick="openModal('images/tool_gengoka.png')">
+      <div class="core-tool-body">
+        <h3>言語化の視点</h3>
+        <p>「なんで？」「つまり？」「他と比べると？」など問い返しの言葉を可視化。教師と児童が共有する対話の共通言語。</p>
+      </div>
+    </div>
+    <div class="core-tool-card">
+      <span class="core-tool-badge">③ ふり返る</span>
+      <img src="images/tool_wagatomo_1.png" alt="わがともシート" class="core-tool-img" onclick="openModal('images/tool_wagatomo_1.png')">
+      <div class="core-tool-body">
+        <h3>わがともシート</h3>
+        <p>わかったこと・がんばったこと・友達のよいところ・もっと知りたいことの4観点で学びと変容を毎時間ふり返る。</p>
+      </div>
+    </div>
+  </div>
+  <div class="core-tools-flow">
+    <span class="flow-step">考える</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">表現する</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">ふり返る</span>
+    <span class="flow-note">この3つで授業の核を支える</span>
+  </div>
+
+  <p class="other-tools-label">その他の支援ツール</p>
   <div class="tool-tabs">
     <button class="tool-tab active" data-group="think">思考ツール</button>
     <button class="tool-tab" data-group="record">記録・ふり返り</button>
