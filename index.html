@@ -414,6 +414,9 @@
 
     .mandala-img {
       width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center center;
       border-radius: 1rem;
       border: 1px solid var(--border);
       display: block;
@@ -957,6 +960,35 @@
 
     .tool-group { display: none; }
     .tool-group.active { display: grid; }
+
+    /* ===== HERO ZOOM ===== */
+    .hero-zoom-btn {
+      position: absolute;
+      top: 4.5rem;
+      right: 1.5rem;
+      z-index: 10;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.7rem;
+      color: rgba(255,255,255,0.65);
+      font-family: inherit;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .hero-zoom-btn:hover {
+      background: rgba(0,0,0,0.55);
+      color: rgba(255,255,255,1);
+      border-color: rgba(255,255,255,0.35);
+    }
 
     /* ===== HERO HOOK ===== */
     .hero-hook {
@@ -1726,6 +1758,12 @@
     <img src="images/rika_bouken_10.png" alt="">
   </div>
   <div class="hero-overlay"></div>
+  <button class="hero-zoom-btn" onclick="openHeroModal()">
+    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1h3M1 1v3M10 1h-3M10 1v3M1 10h3M1 10v-3M10 10h-3M10 10v-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    拡大
+  </button>
   <div class="hero-content">
     <span class="hero-eyebrow">令和8年度 個人研究テーマ</span>
     <p class="hero-hook">あなたのクラスの子どもは、なぜそう考えたか、自分の言葉で説明できますか？</p>
@@ -2540,6 +2578,10 @@
   }
   function closeModal() {
     document.getElementById('modal').classList.remove('open');
+  }
+  function openHeroModal() {
+    const active = document.querySelector('.hero-bg img.slide-active');
+    if (active) openModal(active.src);
   }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
