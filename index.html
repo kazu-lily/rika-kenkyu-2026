@@ -136,11 +136,23 @@
       font-size: clamp(1.6rem, 4vw, 2.8rem);
       font-weight: 900;
       line-height: 1.4;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       letter-spacing: -0.01em;
     }
 
     .hero-title .accent { color: var(--teal); }
+
+    .hero-theme {
+      font-size: clamp(0.88rem, 1.7vw, 1.05rem);
+      color: rgba(226,232,240,0.58);
+      max-width: 540px;
+      margin: 0 auto 2.25rem;
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.025em;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
 
     .hero-sub {
       font-size: 1rem;
@@ -1198,7 +1210,13 @@
       font-size: 0.8rem;
       font-weight: 600;
       text-align: center;
+      transition: border-color 0.2s;
     }
+
+    .tm-node.n-blue  { border-color: rgba(96,165,250,0.35);  color: rgba(96,165,250,0.9); }
+    .tm-node.n-teal  { border-color: rgba(45,212,191,0.35);  color: rgba(45,212,191,0.9); }
+    .tm-node.n-gold  { border-color: rgba(251,191,36,0.35);  color: rgba(251,191,36,0.9); }
+    .tm-node.n-rose  { border-color: rgba(251,113,133,0.35); color: rgba(251,113,133,0.9); }
 
     .tm-connector {
       color: var(--teal);
@@ -1292,12 +1310,17 @@
     }
 
     .summary-lead {
-      font-size: 1rem;
-      line-height: 2;
+      font-size: 1.05rem;
+      line-height: 2.1;
       color: var(--muted);
     }
 
-    .summary-lead strong { color: var(--teal); font-weight: 700; }
+    .summary-lead strong {
+      color: var(--text);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(45,212,191,0.4);
+      padding-bottom: 0.05em;
+    }
 
     .lesson-flow {
       display: flex;
@@ -1308,21 +1331,46 @@
 
     .lf-step {
       background: var(--card);
-      border: 1px solid rgba(45,212,191,0.2);
+      border: 1px solid rgba(45,212,191,0.25);
       border-radius: 1rem;
-      padding: 0.85rem 2.5rem;
+      padding: 0.9rem 2.5rem 0.9rem 1.25rem;
       text-align: center;
-      min-width: 210px;
+      min-width: 230px;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .lf-num {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(45,212,191,0.12);
+      border: 1px solid rgba(45,212,191,0.3);
+      color: var(--teal);
+      font-size: 0.65rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0;
+    }
+
+    .lf-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      text-align: left;
     }
 
     .lf-label {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--teal);
       display: block;
-      margin-bottom: 0.15rem;
     }
 
     .lf-name {
@@ -1331,21 +1379,28 @@
     }
 
     .lf-arr {
-      font-size: 1.1rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      padding: 0.35rem 0;
-      opacity: 0.5;
+      padding: 0.25rem 0;
+      opacity: 0.4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      letter-spacing: 0.15em;
     }
 
     .lf-cycle {
       font-size: 0.7rem;
-      color: var(--muted);
+      color: var(--teal);
       margin-top: 0.75rem;
       text-align: center;
-      border: 1px dashed var(--border);
+      border: 1px dashed rgba(45,212,191,0.25);
       border-radius: 1rem;
-      padding: 0.35rem 1rem;
-      min-width: 210px;
+      padding: 0.4rem 1.25rem;
+      min-width: 230px;
+      opacity: 0.7;
+      letter-spacing: 0.04em;
     }
 
     /* ===== OVERVIEW STRIP ===== */
@@ -1381,10 +1436,10 @@
     .overview-item:last-child { border-right: none; }
 
     .overview-num {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 900;
       line-height: 1;
-      color: rgba(45,212,191,0.18);
+      color: rgba(45,212,191,0.5);
       letter-spacing: -0.03em;
     }
 
@@ -1634,6 +1689,10 @@
       思考のつながりを生み出し、<br>
       学びを深める授業づくり
     </h1>
+    <p class="hero-theme">
+      「問い返し」を通して、子ども同士の対話がつながり、<br>
+      思考が広がっていく理科授業を目指した実践です。
+    </p>
     <p class="hero-sub">文関小学校 理科専科 山田和博</p>
     <div class="hero-badges">
       <span class="badge teal">問い返し</span>
@@ -1686,18 +1745,27 @@
       <p class="section-eyebrow" style="margin-bottom:1rem;">授業の全体像</p>
       <div class="lesson-flow">
         <div class="lf-step">
-          <span class="lf-label">思考の輪</span>
-          <span class="lf-name">考える</span>
+          <span class="lf-num">1</span>
+          <div class="lf-text">
+            <span class="lf-label">思考の輪</span>
+            <span class="lf-name">考える</span>
+          </div>
         </div>
         <div class="lf-arr">↓</div>
         <div class="lf-step">
-          <span class="lf-label">言語化の視点</span>
-          <span class="lf-name">話す</span>
+          <span class="lf-num">2</span>
+          <div class="lf-text">
+            <span class="lf-label">言語化の視点</span>
+            <span class="lf-name">話す</span>
+          </div>
         </div>
         <div class="lf-arr">↓</div>
         <div class="lf-step">
-          <span class="lf-label">わがとも</span>
-          <span class="lf-name">ふり返る</span>
+          <span class="lf-num">3</span>
+          <div class="lf-text">
+            <span class="lf-label">わがとも</span>
+            <span class="lf-name">ふり返る</span>
+          </div>
         </div>
         <p class="lf-cycle">↺ 次の学びへつなげる</p>
       </div>
@@ -2108,10 +2176,10 @@
     <p class="section-eyebrow" style="margin-bottom:1.5rem;">思考のつながりのイメージ</p>
     <div class="thinking-map">
       <div class="tm-inputs">
-        <div class="tm-node">前の時間の学び（既習）</div>
-        <div class="tm-node">友達の考え</div>
-        <div class="tm-node">自分の生活経験</div>
-        <div class="tm-node">これからの学び</div>
+        <div class="tm-node n-blue">前の時間の学び（既習）</div>
+        <div class="tm-node n-teal">友達の考え</div>
+        <div class="tm-node n-gold">自分の生活経験</div>
+        <div class="tm-node n-rose">これからの学び</div>
       </div>
       <div class="tm-connector">→</div>
       <div class="tm-hub">問い</div>
