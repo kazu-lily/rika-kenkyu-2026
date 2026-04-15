@@ -804,11 +804,46 @@
     /* ===== FOOTER ===== */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem;
+      padding: 3rem 2rem 2rem;
       text-align: center;
       color: var(--muted);
       font-size: 0.78rem;
     }
+
+    .footer-qr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-qr-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 0.75rem;
+      background: #fff;
+      padding: 6px;
+      display: block;
+    }
+
+    .footer-qr-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .footer-qr-url {
+      font-size: 0.72rem;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.8;
+    }
+
+    .footer-qr-url:hover { opacity: 1; }
 
     /* ===== FADE IN ===== */
     .fade-in {
@@ -2471,6 +2506,11 @@
 
 <!-- FOOTER -->
 <footer>
+  <div class="footer-qr">
+    <img src="images/qrcode.png" alt="QRコード" class="footer-qr-img">
+    <span class="footer-qr-label">このサイトにアクセス</span>
+    <a href="https://kazu-lily.github.io/rika-kenkyu-2026/" class="footer-qr-url" target="_blank">kazu-lily.github.io/rika-kenkyu-2026</a>
+  </div>
   <p>令和8年度 校内研修 個人研究 — 文関小学校 理科専科 山田和博</p>
 </footer>
 
