@@ -1724,6 +1724,266 @@
       .overview-item:last-child { border-bottom: none; }
       .core-tools-grid { grid-template-columns: 1fr !important; }
       .summary-inner { grid-template-columns: 1fr !important; }
+      .lp-tabs { grid-template-columns: 1fr !important; }
+    }
+
+    /* ===== LESSON PLAN (SHIDOUAN) ===== */
+    .lp-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .lp-tab {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .lp-tab:hover {
+      border-color: rgba(45,212,191,0.4);
+    }
+
+    .lp-tab.active {
+      border-color: var(--teal);
+      background: rgba(45,212,191,0.07);
+    }
+
+    .lp-tab-date {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .lp-tab-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .lp-tab-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .lp-tab-badge {
+      display: inline-block;
+      margin-top: 0.4rem;
+      background: var(--gold);
+      color: #0a1628;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+
+    .lp-panel { display: none; }
+    .lp-panel.active { display: block; }
+
+    .lp-aim {
+      background: rgba(45,212,191,0.06);
+      border: 1px solid rgba(45,212,191,0.25);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .lp-aim-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .lp-aim p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .lp-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .lp-stage {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .lp-stage-label {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.4rem 0.5rem;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .lp-stage-body {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.8rem;
+      padding: 0.9rem 1.1rem;
+    }
+
+    .lp-stage-body h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .lp-stage-body p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lp-stage-body .lp-q {
+      display: inline-block;
+      background: rgba(96,165,250,0.1);
+      border: 1px solid rgba(96,165,250,0.25);
+      border-radius: 0.4rem;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.75rem;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .lp-stage-body .lp-key {
+      display: inline-block;
+      background: rgba(45,212,191,0.1);
+      border: 1px solid rgba(45,212,191,0.25);
+      border-radius: 0.4rem;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.75rem;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .lp-note {
+      background: rgba(96,165,250,0.04);
+      border: 1px solid rgba(96,165,250,0.2);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .lp-note strong { color: var(--blue); }
+
+    .lp-highlight {
+      margin-bottom: 1.75rem;
+    }
+
+    .lp-highlight-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .lp-highlight-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .lp-highlight-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      background: rgba(251,191,36,0.04);
+      border: 1px solid rgba(251,191,36,0.15);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .lp-highlight-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(251,191,36,0.15);
+      border: 1px solid rgba(251,191,36,0.4);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .lp-highlight-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .lp-highlight-item p strong { color: var(--text); }
+
+    .lp-bandshow {
+      margin-bottom: 1.75rem;
+    }
+
+    .lp-bandshow-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .lp-bandshow-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .lp-bandshow-imgs img {
+      width: 100%;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .lp-bandshow-imgs img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .lp-bandshow-caption {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.4rem;
     }
   </style>
 </head>
@@ -1738,6 +1998,7 @@
     <li><a href="#connection">学校の文脈</a></li>
     <li><a href="#approach">実践のアプローチ</a></li>
     <li><a href="#jissen">授業の実際</a></li>
+    <li><a href="#shidouan">指導案</a></li>
     <li><a href="#tools">ツール集</a></li>
     <li><a href="#schedule">年間計画</a></li>
   </ul>
@@ -2315,6 +2576,257 @@
 
 <hr class="divider">
 
+<!-- SHIDOUAN -->
+<section id="shidouan" class="fade-in">
+  <p class="section-eyebrow">Lesson Plan</p>
+  <h2 class="section-title">指導案<span style="color:var(--teal)">（ふりこの運動）</span></h2>
+  <p class="section-desc">公開授業（4/23 3校時）を含む3時間分の授業設計。「問い返し」による子どもの思考の変化を1時間単位で示す。</p>
+
+  <!-- タブ切り替え -->
+  <div class="lp-tabs">
+    <button class="lp-tab active" onclick="switchLPTab(0)">
+      <span class="lp-tab-date">4/20（月）5校時</span>
+      <span class="lp-tab-title">第2時</span>
+      <span class="lp-tab-sub">モヤモヤを残す</span>
+    </button>
+    <button class="lp-tab" onclick="switchLPTab(1)">
+      <span class="lp-tab-date">4/23（木）3校時</span>
+      <span class="lp-tab-title">第3時</span>
+      <span class="lp-tab-sub">条件をそろえる</span>
+      <span class="lp-tab-badge">★ 公開授業</span>
+    </button>
+    <button class="lp-tab" onclick="switchLPTab(2)">
+      <span class="lp-tab-date">4/23（木）4校時</span>
+      <span class="lp-tab-title">第4時</span>
+      <span class="lp-tab-sub">実験で確かめる</span>
+    </button>
+  </div>
+
+  <!-- ===== 第2時 パネル ===== -->
+  <div class="lp-panel active" id="lp-0">
+    <div class="lp-aim">
+      <div class="lp-aim-label">本時のねらい</div>
+      <p>班ごとに異なる条件でふりこを調べ、班によって結果が違うことから「どの条件が原因か分からない」という問題意識（モヤモヤ）をもつことができる。</p>
+    </div>
+
+    <div class="lp-flow">
+      <div class="lp-stage">
+        <div class="lp-stage-label">導入<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>思い出す</h4>
+          <p>前時の3つの条件（長さ・おもり・ふれはば）を黒板に掲示して確認。</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">活動①<br><span style="font-weight:400;font-size:0.65rem;">15分</span></div>
+        <div class="lp-stage-body">
+          <h4>実験する</h4>
+          <p>班ごとに異なる条件でふりこの1往復の時間を測定。10往復×3回 → 平均 ÷ 10。</p>
+          <p style="margin-top:0.5rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.04); border-radius:0.5rem; font-size:0.76rem;">
+            1・2班 → A（長さ40cm・おもり1個・ふれはば30°）<br>
+            3・5・7班 → B（20cm・2個・15°）<br>
+            4・6・8班 → C（60cm・1個・45°）
+          </p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">活動②<br><span style="font-weight:400;font-size:0.65rem;">10分</span></div>
+        <div class="lp-stage-body">
+          <h4>共有する</h4>
+          <p>全班の結果をロイロノートで提出 → 黒板で比較（A≈1.4秒 / B≈1.0秒 / C≈1.7秒）。</p>
+          <p style="margin-top:0.5rem;"><span class="lp-q">発問</span> 班によってずいぶん違うね。どの条件が関係してそう？</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">問い<br><span style="font-weight:400;font-size:0.65rem;">10分</span></div>
+        <div class="lp-stage-body">
+          <h4>モヤモヤする</h4>
+          <p><span class="lp-q">問い返し</span> 「これが原因だ」って、自信をもって言える？</p>
+          <p style="margin-top:0.4rem;">子どもの予想（「長さ？」「重さ？」「ふれはば？」）を短冊にして黒板に残す。答えは出さず、次時へ持ち越す。</p>
+          <p style="margin-top:0.5rem;"><span class="lp-key">仕込み</span> 「どうしたらはっきり分かるかな？」を投げかけて終える。</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">ふり返り<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>次時へ</h4>
+          <p>「今日モヤモヤしたこと」「次に考えたいこと」をふり返りシートに記入して提出。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-note">
+      <strong>第3時（公開授業）への仕込み</strong><br>
+      結果カード（A・B・C）と子どもの予想短冊は黒板に残したまま終了。第3時の導入でそのまま再提示し、「あれ、全部違うじゃん」「比べられない」という気づきを子ども自身の言葉で立ち上げる展開につなぐ。
+    </div>
+  </div>
+
+  <!-- ===== 第3時 パネル（公開授業） ===== -->
+  <div class="lp-panel" id="lp-1">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <span style="background:var(--gold); color:#0a1628; font-size:0.72rem; font-weight:700; padding:0.2rem 0.75rem; border-radius:1rem; letter-spacing:0.05em;">★ 公開授業</span>
+      <span style="font-size:0.82rem; color:var(--muted);">個人研究テーマ：「問い返し」による対話を通じて、子どもの思考のつながりを深める理科授業</span>
+    </div>
+
+    <div class="lp-aim">
+      <div class="lp-aim-label">本時のねらい</div>
+      <p>ふりこの1往復する時間を正しく比べるためには、調べる条件を1つにし、それ以外の条件をそろえる必要があることに気づくことができる。（思考・判断・表現）</p>
+    </div>
+
+    <div class="lp-flow">
+      <div class="lp-stage">
+        <div class="lp-stage-label">導入<br><span style="font-weight:400;font-size:0.65rem;">10分</span></div>
+        <div class="lp-stage-body">
+          <h4>揺さぶる</h4>
+          <p>前時のデータA・B・Cを再提示。</p>
+          <p style="margin-top:0.4rem;"><span class="lp-q">問い返し①-a</span> ほんとにそれだけが原因って言える？</p>
+          <p style="margin-top:0.3rem;"><span class="lp-q">問い返し①-b</span> もし違ったら、どこが怪しい？</p>
+          <p style="margin-top:0.4rem; color:var(--teal); font-size:0.8rem; font-weight:700;">→ 「あれ、全部違うじゃん」「比べられない！」</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">展開①<br><span style="font-weight:400;font-size:0.65rem;">10分</span></div>
+        <div class="lp-stage-body">
+          <h4>発見する</h4>
+          <p><span class="lp-q">発問</span> じゃあ、どうしたらどれが原因か分かりそう？</p>
+          <p style="margin-top:0.4rem;">→ 子どもの言葉で板書：「変える条件→1つ／そろえる条件→それ以外」</p>
+          <p style="margin-top:0.4rem;"><span class="lp-q">問い返し②（核）</span> なんで、他の条件をそろえないといけないんだろう？</p>
+          <p style="margin-top:0.3rem; font-size:0.76rem; color:var(--muted);">※ここで3〜5秒の沈黙を意図的にとる。「考えている時間」を保障する。</p>
+          <p style="margin-top:0.4rem; color:var(--teal); font-size:0.8rem; font-weight:700;">→ 「一緒に変えたら、どれのせいか分からんくなるから……」</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">展開②<br><span style="font-weight:400;font-size:0.65rem;">15分</span></div>
+        <div class="lp-stage-body">
+          <h4>計画する</h4>
+          <p>ふれはばを変える実験計画を立てる（変える：ふれはば30°と15° ／ そろえる：長さ40cm・おもり1個）。</p>
+          <p style="margin-top:0.4rem;"><span class="lp-q">確認の問い返し</span> もし長さも一緒に変えちゃったら、正しく比べられる？</p>
+          <p style="margin-top:0.3rem; color:var(--teal); font-size:0.8rem; font-weight:700;">→ 「また比べられなくなる！」</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">まとめ<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>言葉にする</h4>
+          <p>子どもの言葉を板書 → 教師が整理する順で進める。</p>
+          <p style="margin-top:0.4rem; padding:0.5rem 0.75rem; background:rgba(45,212,191,0.07); border-left:2px solid var(--teal); border-radius:0.4rem; font-size:0.82rem; line-height:1.7;">
+            「調べる条件だけを変えて、他は同じにしないと、何が原因か分からなくなる」<br>
+            <span style="color:var(--teal); font-weight:700;">→ これを『条件をそろえる』と言います。</span>
+          </p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">ふり返り<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>わがとも</h4>
+          <p>【わ】条件をそろえると比べられる　【が】自分の考え　【と】友達の「なるほど」　【も】他の場面でも使えそうか</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 見どころ -->
+    <div class="lp-highlight">
+      <div class="lp-highlight-title">本時の見どころ（公開授業として）</div>
+      <div class="lp-highlight-list">
+        <div class="lp-highlight-item">
+          <div class="lp-highlight-num">①</div>
+          <p><strong>「比べられない！」と子どもが自ら気づく瞬間（導入）</strong><br>A・B・Cのデータを前に、子どもが自分の言葉で「言い切れない」と気づく場面。</p>
+        </div>
+        <div class="lp-highlight-item">
+          <div class="lp-highlight-num">②</div>
+          <p><strong>「1つだけ変えればいい」と子どもが言う瞬間（展開①）</strong><br>解決策が教師からではなく、子どもの言葉で板書化されていく過程。</p>
+        </div>
+        <div class="lp-highlight-item">
+          <div class="lp-highlight-num">③</div>
+          <p><strong>問い返しで考えが深まる対話（展開①後半）</strong><br>「なんでそろえないといけないの？」という問い返しで、意味が子ども自身の言葉で立ち上がる場面。</p>
+        </div>
+        <div class="lp-highlight-item">
+          <div class="lp-highlight-num">④</div>
+          <p><strong>子どもの「言葉の変化」が見える授業</strong><br>「長さ？」→「どれも違うから決められない」→「比べられない」→「1つだけ変える必要がある」へと段階的に変化していく過程。</p>
+        </div>
+        <div class="lp-highlight-item">
+          <div class="lp-highlight-num">⑤</div>
+          <p><strong>沈黙のあとに出てくる「子どもの一言」</strong><br>問い返し②の後、3〜5秒の静かな時間が流れる。この沈黙は子どもが自分の言葉を探している時間。そのあとに出てくる一言こそがこの授業の価値をつくる。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 板書イメージ -->
+    <div class="lp-bandshow">
+      <div class="lp-bandshow-title">板書計画（黒板レイアウト）</div>
+      <div class="lp-bandshow-imgs">
+        <div>
+          <img src="images/bandsho_jo.png" alt="板書イメージ（上段）" onclick="openModal(this.src)">
+          <p class="lp-bandshow-caption">上段：問い・予想・気づき</p>
+        </div>
+        <div>
+          <img src="images/bandsho_ge.png" alt="板書イメージ（下段）" onclick="openModal(this.src)">
+          <p class="lp-bandshow-caption">下段：解決・条件整理・実験計画</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 第4時 パネル ===== -->
+  <div class="lp-panel" id="lp-2">
+    <div class="lp-aim">
+      <div class="lp-aim-label">本時のねらい</div>
+      <p>条件をそろえてふれはばだけを変える実験を行い、ふりこが1往復する時間はふれはばによって変わらないことを確かめる。「条件をそろえたから正しく比べられた」という実感をもつことができる。</p>
+    </div>
+
+    <div class="lp-flow">
+      <div class="lp-stage">
+        <div class="lp-stage-label">導入<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>計画を確認</h4>
+          <p>前時（第3時）の実験計画を確認：変える条件→ふれはば（30°と15°）、そろえる条件→長さ40cm・おもり1個。</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">実験<br><span style="font-weight:400;font-size:0.65rem;">20分</span></div>
+        <div class="lp-stage-body">
+          <h4>確かめる</h4>
+          <p>班ごとにふれはば30°と15°で実験。10往復×3回 → 合計÷3 → ÷10 → 1往復の平均タイム。結果をロイロノートに入力。</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">結果共有<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>比べる</h4>
+          <p>全班の結果を黒板で共有 → どの班もほぼ同じ時間。</p>
+          <p style="margin-top:0.4rem;"><span class="lp-q">問い返し</span> 今日はなんで昨日より自信をもって言えそう？前回と今日、何が違う？</p>
+          <p style="margin-top:0.3rem; color:var(--teal); font-size:0.8rem; font-weight:700;">→ 「今日はふれはばだけを変えて、他をそろえたから！」</p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">考察<br><span style="font-weight:400;font-size:0.65rem;">10分</span></div>
+        <div class="lp-stage-body">
+          <h4>つながる</h4>
+          <p>まとめは2文構成で子どもの言葉から引き出す。</p>
+          <p style="margin-top:0.5rem; padding:0.5rem 0.75rem; background:rgba(45,212,191,0.07); border-left:2px solid var(--teal); border-radius:0.4rem; font-size:0.82rem; line-height:1.8;">
+            ①　同じふりこなら、ふれはばが変わっても1往復する時間はほとんど変わらない。<br>
+            ②　それは、ふれはばだけを変えて、ほかの条件をそろえて比べたから言える。
+          </p>
+        </div>
+      </div>
+      <div class="lp-stage">
+        <div class="lp-stage-label">ふり返り<br><span style="font-weight:400;font-size:0.65rem;">5分</span></div>
+        <div class="lp-stage-body">
+          <h4>わがとも</h4>
+          <p>【わ】ふれはばは時間に関係しない　【が】自分の予想との比較　【と】友達の考察　【も】次は何を調べたいか（長さ？重さ？）</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-note">
+      <strong>第3時とのつながり・次時への展望</strong><br>
+      本時は第3時で発見した「条件をそろえる」という考え方を、実際の実験で確かめる時間。「条件をそろえたから比べられた」という実感が、条件制御を「作業」ではなく「意味のある行為」として定着させる。第5時以降は同じ考え方で長さ・おもりの重さの関係を調べ、ふりこの法則の発見へとつなぐ。
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <!-- TOOLS -->
 <section id="tools" class="fade-in">
   <p class="section-eyebrow">Tools</p>
@@ -2571,6 +3083,16 @@
 </div>
 
 <script>
+  // 指導案タブ切り替え
+  function switchLPTab(index) {
+    document.querySelectorAll('.lp-tab').forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+    document.querySelectorAll('.lp-panel').forEach((p, i) => {
+      p.classList.toggle('active', i === index);
+    });
+  }
+
   // Modal
   function openModal(src) {
     document.getElementById('modal-img').src = src;
