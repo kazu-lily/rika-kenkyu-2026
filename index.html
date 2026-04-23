@@ -2181,10 +2181,72 @@
       line-height: 1.7;
     }
 
+    /* ふり返り（授業後） */
+    .event-reflect-box {
+      background: rgba(251,113,133,0.05);
+      border: 1px solid rgba(251,113,133,0.25);
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .event-reflect-box p {
+      font-size: 0.92rem;
+      line-height: 1.9;
+      color: var(--text);
+    }
+
+    .event-reflect-box p + p {
+      margin-top: 0.9rem;
+    }
+
+    /* 板書ギャラリー */
+    .bansho-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .bansho-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.8rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    .bansho-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+      transition: opacity 0.2s;
+    }
+
+    .bansho-item img:hover { opacity: 0.88; }
+
+    .bansho-item figcaption {
+      padding: 0.9rem 1rem;
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .bansho-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-right: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+
     @media (max-width: 768px) {
       .event-card { padding: 1.75rem 1.25rem; }
       .lp-stage { grid-template-columns: 70px 1fr; }
       .lp-bandshow-imgs { grid-template-columns: 1fr; }
+      .bansho-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -3097,6 +3159,60 @@
           「条件をそろえる」という考え方は、教えたものではなく、<br>
           子どもたちの中から生まれたものである。
         </p>
+      </div>
+    </div>
+
+    <!-- ◆ 授業を終えて -->
+    <div class="event-block">
+      <div class="event-block-label">◆ 授業を終えて（実践を通して見えたこと）</div>
+      <div class="event-reflect-box">
+        <p>
+          実際の授業では、子どもたちが前時のデータをもとに根拠を考え、「原因が決められない」ことに気づく姿が見られた。そこから、「どうしたら比べられるか」を考える中で、「条件をそろえる」「1つだけ変える」といった考えが、教師に教えられるのではなく、子ども自身の言葉として立ち上がっていった。
+        </p>
+        <p>
+          また、第4時での予想の場面では、身振り手振りやブランコ、勢いといった生活経験を使いながら、「伝わるように伝える」姿が多く見られた。
+        </p>
+        <p>
+          第2時でモヤモヤを残し、第3時で意味に気づき、第4時で実験を通して確かめるという3時間の流れの中で、「条件をそろえる」という考え方を子どもが必要感をもって獲得していく単元構成の価値を改めて感じた。
+        </p>
+      </div>
+    </div>
+
+    <!-- ◆ 実際の板書と子どもの思考の流れ -->
+    <div class="event-block">
+      <div class="event-block-label">◆ 実際の板書と子どもの思考の流れ</div>
+      <p class="event-block-note">
+        第2時〜第4時の板書を時系列で並べ、子どもの思考の変化を可視化した。第3時（公開授業）では「決められない」から「条件をそろえる」へと言葉が変化し、第4時では生活経験を使った予想の表現が多く見られた。
+      </p>
+      <div class="bansho-grid">
+        <figure class="bansho-item">
+          <img src="images/第２時_板書.png" alt="第2時の板書（モヤモヤの状態）" onclick="openModal(this.src)">
+          <figcaption>
+            <span class="bansho-label">第2時</span>
+            モヤモヤを残す：班ごとに違う条件で結果がばらばら。「どれが原因か決められない」という状態で授業を終える。
+          </figcaption>
+        </figure>
+        <figure class="bansho-item">
+          <img src="images/第３時_板書（公開授業）.png" alt="第3時の板書（公開授業：思考の変化）" onclick="openModal(this.src)">
+          <figcaption>
+            <span class="bansho-label">第3時（公開授業）</span>
+            思考の変化：「比べられない」から「条件をそろえる」「1つだけ変える」という言葉が子ども自身から生まれていった過程。
+          </figcaption>
+        </figure>
+        <figure class="bansho-item">
+          <img src="images/第４時_板書.png" alt="第4時の板書（予想と実験）" onclick="openModal(this.src)">
+          <figcaption>
+            <span class="bansho-label">第4時</span>
+            予想と実験：ブランコや身振り、勢いなど、生活経験を使った予想が並ぶ。子どもが「伝わるように伝える」姿。
+          </figcaption>
+        </figure>
+        <figure class="bansho-item">
+          <img src="images/第４時_結果の集約カード.png" alt="第4時の集約途中のカード（結果の見取り）" onclick="openModal(this.src)">
+          <figcaption>
+            <span class="bansho-label">第4時・集約途中</span>
+            結果の見取り：各班の結果を集約する途中の記録。「ふれはばは時間に関係しない」が見えてくる場面。
+          </figcaption>
+        </figure>
       </div>
     </div>
 
