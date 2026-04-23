@@ -2242,6 +2242,31 @@
       letter-spacing: 0.03em;
     }
 
+    .bansho-role {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .bansho-point {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* 蓄積への橋渡し */
+    .event-bridge-note {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--muted);
+      text-align: center;
+      margin: 0 auto 1rem;
+      max-width: 640px;
+    }
+
     @media (max-width: 768px) {
       .event-card { padding: 1.75rem 1.25rem; }
       .lp-stage { grid-template-columns: 70px 1fr; }
@@ -3175,6 +3200,9 @@
         <p>
           第2時でモヤモヤを残し、第3時で意味に気づき、第4時で実験を通して確かめるという3時間の流れの中で、「条件をそろえる」という考え方を子どもが必要感をもって獲得していく単元構成の価値を改めて感じた。
         </p>
+        <p>
+          そしてこの「モヤモヤを残す → 意味に気づく → 実験で確かめる」という3時間の構造は、今回の単元にとどまらず、他の単元でも子どもが考え方を獲得していくための、ひとつの授業設計の型として活かしていけると感じている。
+        </p>
       </div>
     </div>
 
@@ -3182,35 +3210,39 @@
     <div class="event-block">
       <div class="event-block-label">◆ 実際の板書と子どもの思考の流れ</div>
       <p class="event-block-note">
-        第2時〜第4時の板書を時系列で並べ、子どもの思考の変化を可視化した。第3時（公開授業）では「決められない」から「条件をそろえる」へと言葉が変化し、第4時では生活経験を使った予想の表現が多く見られた。
+        第2時〜第4時の板書を時系列で並べ、子どもの思考の変化を可視化した。公開授業の中心は第3時で、第2時は「モヤモヤを残す」導入、第4時は「実験で確かめる」展開として、その前後を支える役割をもつ。3時間の流れの中で、子どもが「条件をそろえる」という考え方を獲得していく過程をそのまま見ていただきたい。
       </p>
       <div class="bansho-grid">
         <figure class="bansho-item">
           <img src="images/第２時_板書.png" alt="第2時の板書（モヤモヤの状態）" onclick="openModal(this.src)">
           <figcaption>
             <span class="bansho-label">第2時</span>
-            モヤモヤを残す：班ごとに違う条件で結果がばらばら。「どれが原因か決められない」という状態で授業を終える。
+            <span class="bansho-role">モヤモヤを残す</span>
+            <span class="bansho-point">どれが原因か決められない状態</span>
           </figcaption>
         </figure>
         <figure class="bansho-item">
           <img src="images/第３時_板書（公開授業）.png" alt="第3時の板書（公開授業：思考の変化）" onclick="openModal(this.src)">
           <figcaption>
-            <span class="bansho-label">第3時（公開授業）</span>
-            思考の変化：「比べられない」から「条件をそろえる」「1つだけ変える」という言葉が子ども自身から生まれていった過程。
+            <span class="bansho-label">第3時</span>
+            <span class="bansho-role">公開授業</span>
+            <span class="bansho-point">「比べられない」から「条件をそろえる」へ</span>
           </figcaption>
         </figure>
         <figure class="bansho-item">
           <img src="images/第４時_板書.png" alt="第4時の板書（予想と実験）" onclick="openModal(this.src)">
           <figcaption>
             <span class="bansho-label">第4時</span>
-            予想と実験：ブランコや身振り、勢いなど、生活経験を使った予想が並ぶ。子どもが「伝わるように伝える」姿。
+            <span class="bansho-role">予想と実験</span>
+            <span class="bansho-point">生活経験を使って伝える姿</span>
           </figcaption>
         </figure>
         <figure class="bansho-item">
           <img src="images/第４時_結果の集約カード.png" alt="第4時の集約途中のカード（結果の見取り）" onclick="openModal(this.src)">
           <figcaption>
-            <span class="bansho-label">第4時・集約途中</span>
-            結果の見取り：各班の結果を集約する途中の記録。「ふれはばは時間に関係しない」が見えてくる場面。
+            <span class="bansho-label">集約途中</span>
+            <span class="bansho-role">結果の見取り</span>
+            <span class="bansho-point">「ふれはばは関係しない」が見え始める場面</span>
           </figcaption>
         </figure>
       </div>
@@ -3221,6 +3253,9 @@
   <!-- ===================================================================== -->
   <!-- 今後の公開授業はここに新しい<article class="event-card">を追加          -->
   <!-- ===================================================================== -->
+  <p class="event-bridge-note">
+    今回の実践は、今後の公開授業を整理していく際の、ひとつの基本形として残しておきたい。
+  </p>
   <div class="event-placeholder">
     今後の公開授業は、ここに同じかたちで追加していきます。
   </div>
