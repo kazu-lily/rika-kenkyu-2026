@@ -2257,6 +2257,40 @@
       line-height: 1.65;
     }
 
+    /* 主役となる板書（第3時／公開授業）を少しだけ強調 */
+    .bansho-item.is-main {
+      border: 1.5px solid rgba(45,212,191,0.55);
+      box-shadow: 0 0 0 1px rgba(45,212,191,0.18);
+      position: relative;
+    }
+
+    .bansho-main-badge {
+      position: absolute;
+      top: 0.65rem;
+      left: 0.65rem;
+      background: rgba(45,212,191,0.92);
+      color: #0a1628;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.22rem 0.6rem;
+      border-radius: 0.4rem;
+      letter-spacing: 0.03em;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* 板書セクションの短いガイド */
+    .bansho-guide {
+      font-size: 0.82rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      padding: 0.55rem 0.9rem;
+      border-left: 2px solid var(--teal);
+      background: rgba(45,212,191,0.05);
+      border-radius: 0 0.4rem 0.4rem 0;
+    }
+
     /* 蓄積への橋渡し */
     .event-bridge-note {
       font-size: 0.82rem;
@@ -3212,6 +3246,9 @@
       <p class="event-block-note">
         第2時〜第4時の板書を時系列で並べ、子どもの思考の変化を可視化した。公開授業の中心は第3時で、第2時は「モヤモヤを残す」導入、第4時は「実験で確かめる」展開として、その前後を支える役割をもつ。3時間の流れの中で、子どもが「条件をそろえる」という考え方を獲得していく過程をそのまま見ていただきたい。
       </p>
+      <p class="bansho-guide">
+        第2時から第4時にかけての思考の変化が、板書に表れています。
+      </p>
       <div class="bansho-grid">
         <figure class="bansho-item">
           <img src="images/第２時_板書.png" alt="第2時の板書（モヤモヤの状態）" onclick="openModal(this.src)">
@@ -3221,7 +3258,8 @@
             <span class="bansho-point">どれが原因か決められない状態</span>
           </figcaption>
         </figure>
-        <figure class="bansho-item">
+        <figure class="bansho-item is-main">
+          <span class="bansho-main-badge">★ 公開授業</span>
           <img src="images/第３時_板書（公開授業）.png" alt="第3時の板書（公開授業：思考の変化）" onclick="openModal(this.src)">
           <figcaption>
             <span class="bansho-label">第3時</span>
@@ -3242,7 +3280,7 @@
           <figcaption>
             <span class="bansho-label">集約途中</span>
             <span class="bansho-role">結果の見取り</span>
-            <span class="bansho-point">「ふれはばは関係しない」が見え始める場面</span>
+            <span class="bansho-point">結果から「ふれはばは関係しない」という考えが見え始めている場面</span>
           </figcaption>
         </figure>
       </div>
